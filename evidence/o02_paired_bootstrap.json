@@ -1,0 +1,38 @@
+{
+  "n_pairs_full_grid": 30,
+  "resamples": 1000,
+  "alpha": 0.05,
+  "ci_kind": "percentile",
+  "comparisons": [
+    {
+      "arm_a": "co-evolve",
+      "arm_b": "deterministic-allocator",
+      "n_pairs": 30,
+      "point_estimate_paired_diff": -0.4802,
+      "ci_lo": -0.7423,
+      "ci_hi": -0.1994,
+      "verdict": "FIRES — co-evolve strictly dominated (upper CI < 0)"
+    },
+    {
+      "arm_a": "co-evolve",
+      "arm_b": "bounded-formal-only",
+      "n_pairs": 30,
+      "point_estimate_paired_diff": -0.4332,
+      "ci_lo": -0.7933,
+      "ci_hi": -0.0966,
+      "verdict": "FIRES — co-evolve strictly dominated (upper CI < 0)"
+    },
+    {
+      "arm_a": "deterministic-allocator",
+      "arm_b": "bounded-formal-only",
+      "n_pairs": 30,
+      "point_estimate_paired_diff": 0.047,
+      "ci_lo": -0.1489,
+      "ci_hi": 0.2614,
+      "verdict": "STRADDLES — inconclusive at 95% CI"
+    }
+  ],
+  "_ledger_sha256": "921724c80634ec16",
+  "_regenerated_utc": "2026-08-22",
+  "_source_ledger": "evidence/o02_e1_ledger.json"
+}

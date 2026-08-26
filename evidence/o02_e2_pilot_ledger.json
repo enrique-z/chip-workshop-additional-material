@@ -1,0 +1,17 @@
+{
+ "e2p.direct::mkc": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.mkc",
+ "e2p.direct::fpr": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.fpr",
+ "e2p.direct::ffr": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.ffr",
+ "e2p.direct::wc": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.wc",
+ "e2p.direct::transfer_score": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.transfer_score",
+ "e2p.det::mkc": "evidence/o02_e2_pilot_aggregate.json::e2p.det.mkc",
+ "e2p.det::fpr": "evidence/o02_e2_pilot_aggregate.json::e2p.det.fpr",
+ "e2p.det::ffr": "evidence/o02_e2_pilot_aggregate.json::e2p.det.ffr",
+ "e2p.det::wc": "evidence/o02_e2_pilot_aggregate.json::e2p.det.wc",
+ "e2p.det::transfer_score": "evidence/o02_e2_pilot_aggregate.json::e2p.det.transfer_score",
+ "e2p.coev::mkc": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.mkc",
+ "e2p.coev::fpr": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.fpr",
+ "e2p.coev::ffr": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.ffr",
+ "e2p.coev::wc": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.wc",
+ "e2p.coev::transfer_score": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.transfer_score"
+}

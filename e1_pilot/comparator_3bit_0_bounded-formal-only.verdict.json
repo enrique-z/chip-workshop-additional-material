@@ -1,0 +1,16 @@
+{
+  "verdict_id": "e1_pilot_comparator_3bit_0_bounded-formal-only",
+  "design_id": "rtllm::comparator_3bit",
+  "seed": 0,
+  "system": "bounded-formal-only",
+  "property_id": "anchor::comparator_3bit_ge_eq_lt_correctness",
+  "engine": "sby+z3",
+  "outcome": "PROVED",
+  "origin": "anchor",
+  "wall_seconds": 1.79,
+  "smt_seconds": 0.5,
+  "sim_seconds": 0.0,
+  "llm_tokens": 0,
+  "sby_summary": "successful proof by k-induction; 3 assertions (A_greater==(A>B), A_equal==(A==B), A_less==(A<B))",
+  "checkpoint": "Pass-1.5 preview receipt, 2026-08-16"
+}

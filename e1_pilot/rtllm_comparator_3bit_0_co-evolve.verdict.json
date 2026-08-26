@@ -1,0 +1,151 @@
+{
+  "cell": {
+    "design_id": "rtllm::comparator_3bit",
+    "seed": 0,
+    "system": "co-evolve",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 6,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.2956364154815674,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 0.2956364154815674,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 6,
+  "verdicts": [
+    {
+      "verdict_id": "sim_3a29eefa9a91",
+      "testbench_id": "tb_89fbe4f509ef",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.05060291290283203,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05060291290283203,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/3a29eefa9a91/alias.sv:1: error: 'comparator_3bit' has already been declared in this scope.\nruns/e1/sim/3a29eefa9a91/verified_comparator_3bit.v:1:      : It was declared here as a module.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_609ce8fbf249",
+      "testbench_id": "tb_459739826d9a",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03758096694946289,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.037581682205200195,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/609ce8fbf249/alias.sv:1: error: 'comparator_3bit' has already been declared in this scope.\nruns/e1/sim/609ce8fbf249/verified_comparator_3bit.v:1:      : It was declared here as a module.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_ac9b47c5733c",
+      "testbench_id": "tb_5f834f5223ec",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.039808034896850586,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.039809226989746094,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/ac9b47c5733c/alias.sv:1: error: 'comparator_3bit' has already been declared in this scope.\nruns/e1/sim/ac9b47c5733c/verified_comparator_3bit.v:1:      : It was declared here as a module.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_8e6e2b637971",
+      "testbench_id": "tb_ab7a0cce1ff9",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.06072425842285156,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06072497367858887,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/8e6e2b637971/alias.sv:1: error: 'comparator_3bit' has already been declared in this scope.\nruns/e1/sim/8e6e2b637971/verified_comparator_3bit.v:1:      : It was declared here as a module.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_47f2bc83aba1",
+      "testbench_id": "tb_cfc050cb8e07",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.05213427543640137,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05213427543640137,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/47f2bc83aba1/alias.sv:1: error: 'comparator_3bit' has already been declared in this scope.\nruns/e1/sim/47f2bc83aba1/verified_comparator_3bit.v:1:      : It was declared here as a module.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_c7c88d32ee78",
+      "testbench_id": "tb_b786d74d7d3d",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.05478215217590332,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05478334426879883,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/c7c88d32ee78/alias.sv:1: error: 'comparator_3bit' has already been declared in this scope.\nruns/e1/sim/c7c88d32ee78/verified_comparator_3bit.v:1:      : It was declared here as a module.\n[path-redacted]"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte167",
+      "intended_effect": "flipped constant 0\u21921 at token '1'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_0_to_1_1",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte212",
+      "intended_effect": "flipped constant 0\u21921 at token '1'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_1_to_0_0",
+      "operator": "constant_flip_1_to_0",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte160",
+      "intended_effect": "flipped constant 1\u21920 at token '1'b1'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_1_to_0_1",
+      "operator": "constant_flip_1_to_0",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte205",
+      "intended_effect": "flipped constant 1\u21920 at token '1'b1'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte126",
+      "intended_effect": "inverted RHS of 'assign A_greater = (A > B) ? 1'b1 : 1'b0;'",
+      "origin": "allocator"
+    }
+  ]
+}

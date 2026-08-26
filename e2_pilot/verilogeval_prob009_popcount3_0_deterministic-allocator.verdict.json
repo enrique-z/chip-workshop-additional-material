@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob009_popcount3",
+    "seed": 0,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 5,
+    "n_mutants_survived": 0,
+    "kill_rate": 1.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 73.43300199508667,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 73.43300199508667,
+    "mutation_kill_per_scalar_cost": 0.06808927681227775
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_5eb138cf7297",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 11.633471965789795,
+      "smt_seconds": 11.633471965789795,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/5eb138cf7297/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_429e602fe986",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 9.204447984695435,
+      "smt_seconds": 9.204447984695435,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/429e602fe986/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_f2cdf4d4dd4b",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_stuck_at_1_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 20.70932912826538,
+      "smt_seconds": 20.70932912826538,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/f2cdf4d4dd4b/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_b955a916b6b0",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 16.546819925308228,
+      "smt_seconds": 16.546819925308228,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/b955a916b6b0/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_bc2f2a6b611e",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 15.338932991027832,
+      "smt_seconds": 15.338932991027832,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/bc2f2a6b611e/miter/engine_0/trace.vcd"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob009_popcount3_ref.sv:byte60",
+      "intended_effect": "inverted RHS of 'assign out = in[0]+in[1]+in[2];'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob009_popcount3_ref.sv:byte60",
+      "intended_effect": "forced RHS of 'assign out = in[0]+in[1]+in[2];' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob009_popcount3_ref.sv:byte60",
+      "intended_effect": "forced RHS of 'assign out = in[0]+in[1]+in[2];' to all-ones",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob009_popcount3_ref.sv:byte81",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob009_popcount3_ref.sv:byte87",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    }
+  ]
+}

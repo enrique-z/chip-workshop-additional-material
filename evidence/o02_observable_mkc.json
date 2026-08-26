@@ -1,0 +1,91 @@
+{
+  "note": "Filtered mkc restricted to mutants the bounded-formal-only miter classified as MUTATION_KILLED (behaviorally distinguishable from reference). ",
+  "observability_filter_source": "bounded-formal-only miter outcomes at k-induction depth 2",
+  "observable_mutants_by_design": {
+    "rtllm::JC_counter": [
+      "m_JC_counter_constant_flip_0_to_1_0",
+      "m_JC_counter_constant_flip_1_to_0_0"
+    ],
+    "rtllm::accu": [
+      "m_accu_bitwise_or_to_and_0",
+      "m_accu_signal_invert_rhs_0",
+      "m_accu_signal_invert_rhs_1",
+      "m_accu_stuck_at_0_0",
+      "m_accu_stuck_at_0_1"
+    ],
+    "rtllm::adder_8bit": [
+      "m_adder_8bit_arithmetic_op_swap_0",
+      "m_adder_8bit_arithmetic_op_swap_1",
+      "m_adder_8bit_signal_invert_rhs_0",
+      "m_adder_8bit_stuck_at_0_0",
+      "m_adder_8bit_stuck_at_1_0"
+    ]
+  },
+  "total_observable_mutants": 12,
+  "filtered_per_system": {
+    "direct-prompt": {
+      "mkc_filtered_mean": 0.0663,
+      "killed_observable": 20,
+      "observable_total": 36,
+      "raw_total": 129,
+      "filter_kept_fraction": 0.279,
+      "observable_kill_rate": 0.556,
+      "n_cells": 30
+    },
+    "coverage-guided": {
+      "mkc_filtered_mean": 0.0418,
+      "killed_observable": 21,
+      "observable_total": 36,
+      "raw_total": 129,
+      "filter_kept_fraction": 0.279,
+      "observable_kill_rate": 0.583,
+      "n_cells": 30
+    },
+    "bounded-formal-only": {
+      "mkc_filtered_mean": 0.5952,
+      "killed_observable": 36,
+      "observable_total": 36,
+      "raw_total": 129,
+      "filter_kept_fraction": 0.279,
+      "observable_kill_rate": 1.0,
+      "n_cells": 30
+    },
+    "deterministic-allocator": {
+      "mkc_filtered_mean": 0.4573,
+      "killed_observable": 36,
+      "observable_total": 36,
+      "raw_total": 129,
+      "filter_kept_fraction": 0.279,
+      "observable_kill_rate": 1.0,
+      "n_cells": 30
+    },
+    "co-evolve": {
+      "mkc_filtered_mean": 0.0465,
+      "killed_observable": 25,
+      "observable_total": 36,
+      "raw_total": 129,
+      "filter_kept_fraction": 0.279,
+      "observable_kill_rate": 0.694,
+      "n_cells": 30
+    }
+  },
+  "filtered_ordering_best_to_worst": [
+    "bounded-formal-only",
+    "deterministic-allocator",
+    "direct-prompt",
+    "co-evolve",
+    "coverage-guided"
+  ],
+  "raw_ordering_best_to_worst": [
+    "bounded-formal-only",
+    "deterministic-allocator",
+    "direct-prompt",
+    "co-evolve",
+    "coverage-guided"
+  ],
+  "ordering_holds_under_filter": true,
+  "ordering_holds_top_2": true,
+  "_ledger_sha256": "921724c80634ec16",
+  "_regenerated_utc": "2026-08-22",
+  "_source_ledger": "evidence/o02_e1_ledger.json"
+}

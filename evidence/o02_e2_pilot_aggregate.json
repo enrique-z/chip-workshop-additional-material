@@ -1,0 +1,104 @@
+{
+ "e2p.direct": {
+  "mkc": 0.05,
+  "fpr": 0.457,
+  "ffr": 0.333,
+  "wc": 32.02,
+  "n_cells": 12,
+  "totals": {
+   "mutants": 35,
+   "killed": 19,
+   "survived_only": 16,
+   "false_fail_on_ref": 4
+  },
+  "per_cell": [
+   "verilogeval_prob009_popcount3_0_direct-prompt",
+   "verilogeval_prob017_mux2to1v_0_direct-prompt",
+   "verilogeval_prob018_mux256to1_0_direct-prompt",
+   "verilogeval_prob021_mux256to1v_0_direct-prompt",
+   "verilogeval_prob022_mux2to1_0_direct-prompt",
+   "verilogeval_prob024_hadd_0_direct-prompt",
+   "verilogeval_prob027_fadd_0_direct-prompt",
+   "verilogeval_prob030_popcount255_0_direct-prompt",
+   "verilogeval_prob035_count1to10_0_direct-prompt",
+   "verilogeval_prob037_review2015_count1k_0_direct-prompt",
+   "verilogeval_prob045_edgedetect2_0_direct-prompt",
+   "verilogeval_prob054_edgedetect_0_direct-prompt"
+  ],
+  "detection_rate_e2": 0.5429,
+  "detection_rate_e1": 0.3643,
+  "transfer_score": 1.49,
+  "falsifier_transfer_le_1": "does not fire"
+ },
+ "e2p.det": {
+  "mkc": 0.063,
+  "fpr": 0.257,
+  "ffr": 0.0,
+  "wc": 37.14,
+  "n_cells": 12,
+  "totals": {
+   "mutants": 35,
+   "killed": 26,
+   "survived_only": 9,
+   "false_fail_on_ref": 0
+  },
+  "per_cell": [
+   "verilogeval_prob009_popcount3_0_deterministic-allocator",
+   "verilogeval_prob017_mux2to1v_0_deterministic-allocator",
+   "verilogeval_prob018_mux256to1_0_deterministic-allocator",
+   "verilogeval_prob021_mux256to1v_0_deterministic-allocator",
+   "verilogeval_prob022_mux2to1_0_deterministic-allocator",
+   "verilogeval_prob024_hadd_0_deterministic-allocator",
+   "verilogeval_prob027_fadd_0_deterministic-allocator",
+   "verilogeval_prob030_popcount255_0_deterministic-allocator",
+   "verilogeval_prob035_count1to10_0_deterministic-allocator",
+   "verilogeval_prob037_review2015_count1k_0_deterministic-allocator",
+   "verilogeval_prob045_edgedetect2_0_deterministic-allocator",
+   "verilogeval_prob054_edgedetect_0_deterministic-allocator"
+  ],
+  "detection_rate_e2": 0.7429,
+  "detection_rate_e1": 0.4419,
+  "transfer_score": 1.681,
+  "falsifier_transfer_le_1": "does not fire"
+ },
+ "e2p.coev": {
+  "mkc": 0.076,
+  "fpr": 0.314,
+  "ffr": 1.25,
+  "wc": 31.45,
+  "n_cells": 12,
+  "totals": {
+   "mutants": 35,
+   "killed": 24,
+   "survived_only": 11,
+   "false_fail_on_ref": 15
+  },
+  "per_cell": [
+   "verilogeval_prob009_popcount3_0_co-evolve",
+   "verilogeval_prob017_mux2to1v_0_co-evolve",
+   "verilogeval_prob018_mux256to1_0_co-evolve",
+   "verilogeval_prob021_mux256to1v_0_co-evolve",
+   "verilogeval_prob022_mux2to1_0_co-evolve",
+   "verilogeval_prob024_hadd_0_co-evolve",
+   "verilogeval_prob027_fadd_0_co-evolve",
+   "verilogeval_prob030_popcount255_0_co-evolve",
+   "verilogeval_prob035_count1to10_0_co-evolve",
+   "verilogeval_prob037_review2015_count1k_0_co-evolve",
+   "verilogeval_prob045_edgedetect2_0_co-evolve",
+   "verilogeval_prob054_edgedetect_0_co-evolve"
+  ],
+  "detection_rate_e2": 0.6857,
+  "detection_rate_e1": 0.4651,
+  "transfer_score": 1.474,
+  "falsifier_transfer_le_1": "does not fire"
+ },
+ "_meta": {
+  "experiment": "E2 pilot subset (pre-declared; CHANGELOG_v3.md \u00a7A)",
+  "grid": "12 VerilogEval designs x 1 seed (0) x 3 systems x 1 backend (agy hosted-model-redacted) = 36 cells",
+  "relation_to_full_e2": "SUBSET of the pre-registered 360-cell E2; full E2 (5 seeds, 2 backends) remains planned",
+  "llm_swap_invariance_falsifier": "NOT TESTED (single backend available)",
+  "incomplete_systems": [],
+  "_source_runs_dir": "runs/e2_pilot",
+  "_aggregate_sha256_16": "f238f6dc5f538902"
+ }
+}

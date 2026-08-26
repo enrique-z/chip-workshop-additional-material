@@ -1,0 +1,186 @@
+{
+  "prices_usd_per_1k_tokens": [
+    3.0,
+    0.3,
+    0.03,
+    0.0
+  ],
+  "systems": [
+    "direct-prompt",
+    "coverage-guided",
+    "bounded-formal-only",
+    "deterministic-allocator",
+    "co-evolve"
+  ],
+  "by_price": {
+    "$3.00": {
+      "direct-prompt": {
+        "mkc_mean_over_cells": 0.1287,
+        "absolute_kills": 47,
+        "mean_scalar_cost_per_cell": 17.957,
+        "n_cells": 30
+      },
+      "coverage-guided": {
+        "mkc_mean_over_cells": 0.0765,
+        "absolute_kills": 48,
+        "mean_scalar_cost_per_cell": 39.979,
+        "n_cells": 30
+      },
+      "bounded-formal-only": {
+        "mkc_mean_over_cells": 0.5952,
+        "absolute_kills": 36,
+        "mean_scalar_cost_per_cell": 7.664,
+        "n_cells": 30
+      },
+      "deterministic-allocator": {
+        "mkc_mean_over_cells": 0.5827,
+        "absolute_kills": 57,
+        "mean_scalar_cost_per_cell": 21.397,
+        "n_cells": 30
+      },
+      "co-evolve": {
+        "mkc_mean_over_cells": 0.1025,
+        "absolute_kills": 60,
+        "mean_scalar_cost_per_cell": 42.742,
+        "n_cells": 30
+      }
+    },
+    "$0.30": {
+      "direct-prompt": {
+        "mkc_mean_over_cells": 0.3754,
+        "absolute_kills": 47,
+        "mean_scalar_cost_per_cell": 12.583,
+        "n_cells": 30
+      },
+      "coverage-guided": {
+        "mkc_mean_over_cells": 0.2457,
+        "absolute_kills": 48,
+        "mean_scalar_cost_per_cell": 29.097,
+        "n_cells": 30
+      },
+      "bounded-formal-only": {
+        "mkc_mean_over_cells": 0.5952,
+        "absolute_kills": 36,
+        "mean_scalar_cost_per_cell": 7.664,
+        "n_cells": 30
+      },
+      "deterministic-allocator": {
+        "mkc_mean_over_cells": 0.5827,
+        "absolute_kills": 57,
+        "mean_scalar_cost_per_cell": 21.397,
+        "n_cells": 30
+      },
+      "co-evolve": {
+        "mkc_mean_over_cells": 0.3358,
+        "absolute_kills": 60,
+        "mean_scalar_cost_per_cell": 31.865,
+        "n_cells": 30
+      }
+    },
+    "$0.03": {
+      "direct-prompt": {
+        "mkc_mean_over_cells": 0.5111,
+        "absolute_kills": 47,
+        "mean_scalar_cost_per_cell": 12.045,
+        "n_cells": 30
+      },
+      "coverage-guided": {
+        "mkc_mean_over_cells": 0.3415,
+        "absolute_kills": 48,
+        "mean_scalar_cost_per_cell": 28.009,
+        "n_cells": 30
+      },
+      "bounded-formal-only": {
+        "mkc_mean_over_cells": 0.5952,
+        "absolute_kills": 36,
+        "mean_scalar_cost_per_cell": 7.664,
+        "n_cells": 30
+      },
+      "deterministic-allocator": {
+        "mkc_mean_over_cells": 0.5827,
+        "absolute_kills": 57,
+        "mean_scalar_cost_per_cell": 21.397,
+        "n_cells": 30
+      },
+      "co-evolve": {
+        "mkc_mean_over_cells": 0.4811,
+        "absolute_kills": 60,
+        "mean_scalar_cost_per_cell": 30.777,
+        "n_cells": 30
+      }
+    },
+    "$0.00": {
+      "direct-prompt": {
+        "mkc_mean_over_cells": 0.5352,
+        "absolute_kills": 47,
+        "mean_scalar_cost_per_cell": 11.986,
+        "n_cells": 30
+      },
+      "coverage-guided": {
+        "mkc_mean_over_cells": 0.3585,
+        "absolute_kills": 48,
+        "mean_scalar_cost_per_cell": 27.888,
+        "n_cells": 30
+      },
+      "bounded-formal-only": {
+        "mkc_mean_over_cells": 0.5952,
+        "absolute_kills": 36,
+        "mean_scalar_cost_per_cell": 7.664,
+        "n_cells": 30
+      },
+      "deterministic-allocator": {
+        "mkc_mean_over_cells": 0.5827,
+        "absolute_kills": 57,
+        "mean_scalar_cost_per_cell": 21.397,
+        "n_cells": 30
+      },
+      "co-evolve": {
+        "mkc_mean_over_cells": 0.5079,
+        "absolute_kills": 60,
+        "mean_scalar_cost_per_cell": 30.656,
+        "n_cells": 30
+      }
+    }
+  },
+  "ordering_by_price": {
+    "$3.00": [
+      "bounded-formal-only",
+      "deterministic-allocator",
+      "direct-prompt",
+      "co-evolve",
+      "coverage-guided"
+    ],
+    "$0.30": [
+      "bounded-formal-only",
+      "deterministic-allocator",
+      "direct-prompt",
+      "co-evolve",
+      "coverage-guided"
+    ],
+    "$0.03": [
+      "bounded-formal-only",
+      "deterministic-allocator",
+      "direct-prompt",
+      "co-evolve",
+      "coverage-guided"
+    ],
+    "$0.00": [
+      "bounded-formal-only",
+      "deterministic-allocator",
+      "direct-prompt",
+      "co-evolve",
+      "coverage-guided"
+    ]
+  },
+  "note": "Recomputes mutation-kill per scalar-cost unit at 4 token prices. Scalar cost = sim_seconds + smt_seconds + (llm_tokens / 1000) * price.",
+  "flip_diagnosis": {
+    "co-evolve_rank_at_$3.00": 4,
+    "co-evolve_rank_at_$0.00": 4,
+    "bounded-formal-only_rank_at_$3.00": 1,
+    "bounded-formal-only_rank_at_$0.00": 1,
+    "ordering_flips_between_$3.00_and_$0.00": false
+  },
+  "_ledger_sha256": "921724c80634ec16",
+  "_regenerated_utc": "2026-08-22",
+  "_source_ledger": "evidence/o02_e1_ledger.json"
+}

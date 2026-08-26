@@ -1,0 +1,74 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob030_popcount255",
+    "seed": 0,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 2,
+    "n_mutants_killed": 2,
+    "n_mutants_survived": 0,
+    "kill_rate": 1.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 35.74747586250305,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 35.74747586250305,
+    "mutation_kill_per_scalar_cost": 0.05594800616672014
+  },
+  "n_verdicts": 2,
+  "verdicts": [
+    {
+      "verdict_id": "miter_bfc3da06d9a1",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 23.80680799484253,
+      "smt_seconds": 23.80680799484253,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/bfc3da06d9a1/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_4827e60c13c6",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 11.940667867660522,
+      "smt_seconds": 11.940667867660522,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/4827e60c13c6/miter/engine_0/trace.vcd"
+    }
+  ],
+  "n_mutants": 2,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob030_popcount255_ref.sv:byte145",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "operator": "compare_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob030_popcount255_ref.sv:byte119",
+      "intended_effect": "swapped compare op at token '<'",
+      "origin": "allocator"
+    }
+  ]
+}

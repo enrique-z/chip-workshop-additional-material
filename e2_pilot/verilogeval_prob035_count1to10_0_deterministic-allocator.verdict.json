@@ -1,0 +1,95 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob035_count1to10",
+    "seed": 0,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 3,
+    "n_mutants_killed": 1,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.3333333333333333,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 2,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 8.867520093917847,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 8.867520093917847,
+    "mutation_kill_per_scalar_cost": 0.11277110053417203
+  },
+  "n_verdicts": 3,
+  "verdicts": [
+    {
+      "verdict_id": "miter_fd8b93fa972e",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 3.6846179962158203,
+      "smt_seconds": 3.6846179962158203,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/fd8b93fa972e/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_d7e3c5d8c528",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 2.841287136077881,
+      "smt_seconds": 2.841287136077881,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_542b026d71c5",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 2.3416149616241455,
+      "smt_seconds": 2.3416149616241455,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 3,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob035_count1to10_ref.sv:byte158",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "operator": "compare_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob035_count1to10_ref.sv:byte131",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_compare_op_swap_1",
+      "operator": "compare_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob035_count1to10_ref.sv:byte154",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    }
+  ]
+}

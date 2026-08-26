@@ -1,0 +1,186 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob027_fadd",
+    "seed": 0,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 2,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 2,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 6.3865063190460205,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 1087,
+    "scalar_cost_used": 9.64750631904602,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 10,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_431810a9034b",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1087,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_d9a7d248442a",
+      "testbench_id": "tb_f71e676995f6",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.5454950332641602,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.5454950332641602,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_9c9a84a05ae0",
+      "testbench_id": "tb_f71e676995f6",
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.5828802585601807,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.5828802585601807,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_b85f4db5dc5b",
+      "testbench_id": "tb_f71e676995f6",
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.6067287921905518,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.6067287921905518,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_d7bd715d63fc",
+      "testbench_id": "tb_cb1a85a522d3",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.7241261005401611,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.7241261005401611,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_efd81ac27b49",
+      "testbench_id": "tb_cb1a85a522d3",
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.5133240222930908,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.5133240222930908,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_2dcaa6464628",
+      "testbench_id": "tb_cb1a85a522d3",
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.6515011787414551,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.6515011787414551,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_077c901eef92",
+      "testbench_id": "tb_7dbc41bef85a",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.8539736270904541,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.8539736270904541,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_cc10fee8fed9",
+      "testbench_id": "tb_7dbc41bef85a",
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.8527522087097168,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.8527522087097168,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_e89f2b4eedc3",
+      "testbench_id": "tb_7dbc41bef85a",
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 1.05572509765625,
+      "smt_seconds": 0.0,
+      "sim_seconds": 1.05572509765625,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 2,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob027_fadd_ref.sv:byte111",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob027_fadd_ref.sv:byte113",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "verdict_id": "e1_pilot_adder_8bit_0_bounded-formal-only",
+  "design_id": "rtllm::adder_8bit",
+  "seed": 0,
+  "system": "bounded-formal-only",
+  "property_id": "anchor::adder_8bit_9bit_sum_correctness",
+  "engine": "sby+z3",
+  "outcome": "PROVED",
+  "origin": "anchor",
+  "wall_seconds": 1.0,
+  "smt_seconds": 0.4,
+  "sim_seconds": 0.0,
+  "llm_tokens": 0,
+  "sby_task_directory": "runs/e1_pilot/adder_8bit",
+  "sby_summary": "engine_0 (smtbmc z3) returned pass for basecase; engine_0 (smtbmc z3) returned pass for induction; successful proof by k-induction",
+  "notes": "First REAL run of the O02 pipeline on an RTLLM design. Property: {cout, sum} == {1'b0,a} + {1'b0,b} + {8'b0,cin} (9-bit-extended arithmetic correctness). Proof by k-induction depth=1 (design is combinational). Wall-clock 1s on M3 native ARM64, no Docker, no Rosetta. Commit hash of the design source: RTLLM 2026-08-16 clone.",
+  "checkpoint": "Pass-1.5 preview receipt, 2026-08-16",
+  "reproduce_command": "source $HOME/tools/oss-cad-suite/environment && cd runs/e1_pilot && sby -f adder_8bit.sby"
+}

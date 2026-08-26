@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob021_mux256to1v",
+    "seed": 0,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 5,
+    "n_mutants_survived": 0,
+    "kill_rate": 1.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 85.19145846366882,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 85.19145846366882,
+    "mutation_kill_per_scalar_cost": 0.05869132997802033
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_ac0a78655eab",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 11.92890977859497,
+      "smt_seconds": 11.92890977859497,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/ac0a78655eab/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_c0265855e9d5",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 13.703396797180176,
+      "smt_seconds": 13.703396797180176,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/c0265855e9d5/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_3b415300ab57",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_stuck_at_1_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 15.278419971466064,
+      "smt_seconds": 15.278419971466064,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/3b415300ab57/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_327a67c71dad",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 23.66936182975769,
+      "smt_seconds": 23.66936182975769,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/327a67c71dad/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_55774ccd8244",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 20.611370086669922,
+      "smt_seconds": 20.611370086669922,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/55774ccd8244/miter/engine_0/trace.vcd"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob021_mux256to1v_ref.sv:byte82",
+      "intended_effect": "inverted RHS of 'assign out = {in[sel*4+3], in[sel*4+2], in[sel*4+1], in[sel*'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob021_mux256to1v_ref.sv:byte82",
+      "intended_effect": "forced RHS of 'assign out = {in[sel*4+3], in[sel*4+2], in[sel*4+1], in[sel*' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob021_mux256to1v_ref.sv:byte82",
+      "intended_effect": "forced RHS of 'assign out = {in[sel*4+3], in[sel*4+2], in[sel*4+1], in[sel*' to all-ones",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob021_mux256to1v_ref.sv:byte107",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_1",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob021_mux256to1v_ref.sv:byte120",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    }
+  ]
+}

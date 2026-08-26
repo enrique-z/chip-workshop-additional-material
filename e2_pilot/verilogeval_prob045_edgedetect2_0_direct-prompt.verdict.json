@@ -1,0 +1,186 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob045_edgedetect2",
+    "seed": 0,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 2,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 6,
+    "n_timeouts": 0,
+    "sim_seconds_used": 8.072991609573364,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 1209,
+    "scalar_cost_used": 11.699991609573365,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 10,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_8f3fe67f6b80",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1209,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_50ee38136609",
+      "testbench_id": "tb_931c33e649ea",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 1.6012320518493652,
+      "smt_seconds": 0.0,
+      "sim_seconds": 1.6012320518493652,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_187f5ea60b51",
+      "testbench_id": "tb_931c33e649ea",
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.611541748046875,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.611541748046875,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/187f5ea60b51/compare_op_swap_0.v:11: syntax error\nruns/e1/sim/187f5ea60b51/compare_op_swap_0.v:11: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_b8ed523ba2a5",
+      "testbench_id": "tb_931c33e649ea",
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.751133918762207,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.7511348724365234,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/b8ed523ba2a5/compare_op_swap_1.v:12: syntax error\nruns/e1/sim/b8ed523ba2a5/compare_op_swap_1.v:12: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_1568048e2d9d",
+      "testbench_id": "tb_aba68ac885e7",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.8213109970092773,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.8213109970092773,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_6f5728c134a6",
+      "testbench_id": "tb_aba68ac885e7",
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.9431469440460205,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.9431469440460205,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/6f5728c134a6/compare_op_swap_0.v:11: syntax error\nruns/e1/sim/6f5728c134a6/compare_op_swap_0.v:11: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_5778342c620a",
+      "testbench_id": "tb_aba68ac885e7",
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 1.342834234237671,
+      "smt_seconds": 0.0,
+      "sim_seconds": 1.3428349494934082,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/5778342c620a/compare_op_swap_1.v:12: syntax error\nruns/e1/sim/5778342c620a/compare_op_swap_1.v:12: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_8546ba8bde82",
+      "testbench_id": "tb_7ef9445af4a4",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.9417309761047363,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.9417309761047363,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_4d2481f2461c",
+      "testbench_id": "tb_7ef9445af4a4",
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.3913569450378418,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.3913590908050537,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/4d2481f2461c/compare_op_swap_0.v:11: syntax error\nruns/e1/sim/4d2481f2461c/compare_op_swap_0.v:11: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_2825759e7ca4",
+      "testbench_id": "tb_7ef9445af4a4",
+      "property_id": null,
+      "mutation_id": "m_RefModule_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.6686999797821045,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.6686999797821045,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/2825759e7ca4/compare_op_swap_1.v:12: syntax error\nruns/e1/sim/2825759e7ca4/compare_op_swap_1.v:12: error: Malformed statement\n"
+    }
+  ],
+  "n_mutants": 2,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_compare_op_swap_0",
+      "operator": "compare_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob045_edgedetect2_ref.sv:byte144",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_compare_op_swap_1",
+      "operator": "compare_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob045_edgedetect2_ref.sv:byte163",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    }
+  ]
+}

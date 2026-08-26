@@ -1,0 +1,18 @@
+{
+  "verdict_id": "solver_portfolio_smoke_adder_8bit_2026-08-16",
+  "design_id": "rtllm::adder_8bit",
+  "seed": 0,
+  "system": "bounded-formal-only",
+  "property_id": "anchor::adder_8bit_9bit_sum_correctness",
+  "purpose": "adversarial-R# response: exercise every solver in the paper's declared portfolio {z3, cvc5, boolector, bitwuzla, yices-smt2} on a real RTLLM design, not just z3. Establishes that portfolio-dispatch claims in main.tex §Method are backed by receipts.",
+  "runs": [
+    {"engine": "sby+z3",        "outcome": "PROVED", "wall_seconds": 1.0,   "smt_seconds": 0.4,   "prior_receipt": "adder_8bit_0_bounded-formal-only.verdict.json"},
+    {"engine": "sby+boolector", "outcome": "PROVED", "wall_seconds": 0.42,  "smt_seconds": 0.0,   "sby_summary": "engine_0 (smtbmc boolector) returned pass for basecase + induction; successful proof by k-induction"},
+    {"engine": "sby+bitwuzla",  "outcome": "PROVED", "wall_seconds": 0.58,  "smt_seconds": 0.0,   "sby_summary": "engine_0 (smtbmc bitwuzla) returned pass for basecase + induction; successful proof by k-induction"},
+    {"engine": "sby+yices",     "outcome": "PROVED", "wall_seconds": 0.63,  "smt_seconds": 0.0,   "sby_summary": "engine_0 (smtbmc yices) returned pass for basecase + induction; successful proof by k-induction"},
+    {"engine": "sby+cvc5",      "outcome": "PROVED", "wall_seconds": 135.49, "smt_seconds": 124.0, "sby_summary": "engine_0 (smtbmc cvc5) returned pass for basecase + induction; successful proof by k-induction", "notes": "cvc5 is ~200x slower than the other four on this trivial 9-bit adder property; allocator's cost model will naturally deprioritise cvc5 for combinational proofs and reserve it for the SMT_LIB fragments where its numeric extensions matter"}
+  ],
+  "summary": "5/5 solvers PROVED on rtllm::adder_8bit 9-bit-extended arithmetic correctness. Portfolio-dispatch is real and reproducible via `sby -f adder_8bit_<solver>.sby` from runs/e1_pilot/.",
+  "reproduce_command": "source $HOME/tools/oss-cad-suite/environment && cd runs/e1_pilot && for S in cvc5 boolector bitwuzla yices; do sby -f adder_8bit_$S.sby; done",
+  "checkpoint": "Pass-2 open, 2026-08-16, first substantive commit before generator/allocator implementation"
+}

@@ -1,0 +1,53 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob024_hadd",
+    "seed": 0,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 1,
+    "n_mutants_killed": 1,
+    "n_mutants_survived": 0,
+    "kill_rate": 1.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 14.57499885559082,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 14.57499885559082,
+    "mutation_kill_per_scalar_cost": 0.06861064003558465
+  },
+  "n_verdicts": 1,
+  "verdicts": [
+    {
+      "verdict_id": "miter_e96bc87e5024",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 14.57499885559082,
+      "smt_seconds": 14.57499885559082,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/e96bc87e5024/miter/engine_0/trace.vcd"
+    }
+  ],
+  "n_mutants": 1,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob024_hadd_ref.sv:byte98",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    }
+  ]
+}

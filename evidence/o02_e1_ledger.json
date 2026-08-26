@@ -1,0 +1,22 @@
+{
+  "e1.direct::mkc": "evidence/o02_e1_aggregate.json::e1.direct.mkc",
+  "e1.direct::fpr": "evidence/o02_e1_aggregate.json::e1.direct.fpr",
+  "e1.direct::ffr": "evidence/o02_e1_aggregate.json::e1.direct.ffr",
+  "e1.direct::wc": "evidence/o02_e1_aggregate.json::e1.direct.wc",
+  "e1.cov::mkc": "evidence/o02_e1_aggregate.json::e1.cov.mkc",
+  "e1.cov::fpr": "evidence/o02_e1_aggregate.json::e1.cov.fpr",
+  "e1.cov::ffr": "evidence/o02_e1_aggregate.json::e1.cov.ffr",
+  "e1.cov::wc": "evidence/o02_e1_aggregate.json::e1.cov.wc",
+  "e1.formalonly::mkc": "evidence/o02_e1_aggregate.json::e1.formalonly.mkc",
+  "e1.formalonly::fpr": "evidence/o02_e1_aggregate.json::e1.formalonly.fpr",
+  "e1.formalonly::ffr": "evidence/o02_e1_aggregate.json::e1.formalonly.ffr",
+  "e1.formalonly::wc": "evidence/o02_e1_aggregate.json::e1.formalonly.wc",
+  "e1.det::mkc": "evidence/o02_e1_aggregate.json::e1.det.mkc",
+  "e1.det::fpr": "evidence/o02_e1_aggregate.json::e1.det.fpr",
+  "e1.det::ffr": "evidence/o02_e1_aggregate.json::e1.det.ffr",
+  "e1.det::wc": "evidence/o02_e1_aggregate.json::e1.det.wc",
+  "e1.coev::mkc": "evidence/o02_e1_aggregate.json::e1.coev.mkc",
+  "e1.coev::fpr": "evidence/o02_e1_aggregate.json::e1.coev.fpr",
+  "e1.coev::ffr": "evidence/o02_e1_aggregate.json::e1.coev.ffr",
+  "e1.coev::wc": "evidence/o02_e1_aggregate.json::e1.coev.wc"
+}

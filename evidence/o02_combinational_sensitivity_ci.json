@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-22",
+  "source": "post-hoc slice of evidence/o02_paired_bootstrap.json restricted to the 7 combinational designs (21 pairs = 7 designs x 3 seeds), excluding the 3 sequential designs (accu, LFSR, JC_counter) where the KR-1 deterministic-allocator falls back to zero-kill due to absent golden-testbench.",
+  "purpose": "Sensitivity analysis: does the STRADDLING full-grid CI for (co-evolve - deterministic-allocator) reflect a real inconclusive comparison, or does it reflect KR-1 baseline collapse on the sequential slice? Slicing to combinational-only removes the broken-baseline subsegment and reports the paired-bootstrap CI on the remaining 21 pairs.",
+  "combinational_designs": [
+    "rtllm::adder_8bit",
+    "rtllm::adder_32bit",
+    "rtllm::adder_bcd",
+    "rtllm::comparator_3bit",
+    "rtllm::comparator_4bit",
+    "rtllm::multi_8bit",
+    "rtllm::sub_64bit"
+  ],
+  "excluded_sequential_designs": [
+    "rtllm::accu",
+    "rtllm::LFSR",
+    "rtllm::JC_counter"
+  ],
+  "n_pairs": 21,
+  "resamples": 1000,
+  "alpha": 0.05,
+  "ci_kind": "percentile",
+  "comparison": {
+    "arm_a": "co-evolve",
+    "arm_b": "deterministic-allocator",
+    "point_estimate_paired_diff_combinational_only": -0.3032,
+    "ci_lo": -0.5576,
+    "ci_hi": -0.0488,
+    "verdict": "FIRES on combinational-only slice — co-evolve strictly dominated by deterministic-allocator (upper CI < 0)"
+  },
+  "interpretation": "The full-grid STRADDLE [-0.340, +0.033] is driven by the 3 sequential designs where KR-1 zero-kills; when restricted to the 7 combinational designs where KR-1 is not broken, the CI upper bound moves from +0.033 to -0.0488. The negative-result finding is therefore not an artifact of a broken baseline on 30% of the corpus — it holds on the slice where the baseline is well-defined.",
+  "reproduction": "Re-run scripts/populate_ledger.py with --restrict-to-combinational flag (or subset o02_e1_aggregate.json.<system>.per_cell arrays to designs matching /^rtllm::(adder|comparator|multi|sub)/ and re-bootstrap 1000x paired).",
+  "status_post_amendment_5": "The full-grid (co-evolve - deterministic-allocator) CI on 30 pairs is now FIRES [-0.7423, -0.1994] as of 2026-08-22 (freeze_amendment_5 routes KR-1 sequential to formal miter). This combinational-only slice remains valid as a robustness sensitivity check confirming the effect holds when restricted to the 21 combinational-design pairs, but the paper's central claim no longer depends on the combinational-only slice — it fires on the full grid outright.",
+  "_ledger_sha256": "921724c80634ec16",
+  "_regenerated_utc": "2026-08-22",
+  "_source_ledger": "evidence/o02_e1_ledger.json"
+}

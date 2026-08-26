@@ -1,0 +1,95 @@
+{
+  "cell": {
+    "design_id": "verilogeval::prob017_mux2to1v",
+    "seed": 0,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 3,
+    "n_mutants_killed": 3,
+    "n_mutants_survived": 0,
+    "kill_rate": 1.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 31.599740505218506,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 31.599740505218506,
+    "mutation_kill_per_scalar_cost": 0.0949374884741401
+  },
+  "n_verdicts": 3,
+  "verdicts": [
+    {
+      "verdict_id": "miter_53a764678478",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 11.46627926826477,
+      "smt_seconds": 11.46627926826477,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/53a764678478/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_e37b81b854a0",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 12.811116218566895,
+      "smt_seconds": 12.811116218566895,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/e37b81b854a0/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_cff5852c1154",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_RefModule_stuck_at_1_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 7.322345018386841,
+      "smt_seconds": 7.322345018386841,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/cff5852c1154/miter/engine_0/trace.vcd"
+    }
+  ],
+  "n_mutants": 3,
+  "mutants": [
+    {
+      "mutation_id": "m_RefModule_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob017_mux2to1v_ref.sv:byte92",
+      "intended_effect": "inverted RHS of 'assign out = sel ? b : a;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob017_mux2to1v_ref.sv:byte92",
+      "intended_effect": "forced RHS of 'assign out = sel ? b : a;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_RefModule_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/verilog-eval/dataset_spec-to-rtl/Prob017_mux2to1v_ref.sv:byte92",
+      "intended_effect": "forced RHS of 'assign out = sel ? b : a;' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}

@@ -1,0 +1,852 @@
+[
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:75",
+    "kind": "citation",
+    "assertion_text": "\\citep{liu2023verilogeval}",
+    "supported_verdict_id": "bib:liu2023verilogeval",
+    "provenance_chain": [
+      "refs.bib:liu2023verilogeval"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:75",
+    "kind": "citation",
+    "assertion_text": "\\citep{lu2024rtllm}",
+    "supported_verdict_id": "bib:lu2024rtllm",
+    "provenance_chain": [
+      "refs.bib:lu2024rtllm"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:78",
+    "kind": "citation",
+    "assertion_text": "\\citep{qiu2024autobench}",
+    "supported_verdict_id": "bib:qiu2024autobench",
+    "provenance_chain": [
+      "refs.bib:qiu2024autobench"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:79",
+    "kind": "citation",
+    "assertion_text": "\\citep{deng2026rtl2gds}",
+    "supported_verdict_id": "bib:deng2026rtl2gds",
+    "provenance_chain": [
+      "refs.bib:deng2026rtl2gds"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:88",
+    "kind": "citation",
+    "assertion_text": "\\citep{liu2023verilogeval}",
+    "supported_verdict_id": "bib:liu2023verilogeval",
+    "provenance_chain": [
+      "refs.bib:liu2023verilogeval"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:88",
+    "kind": "citation",
+    "assertion_text": "\\citep{lu2024rtllm}",
+    "supported_verdict_id": "bib:lu2024rtllm",
+    "provenance_chain": [
+      "refs.bib:lu2024rtllm"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:88",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw083}",
+    "supported_verdict_id": "bib:cw083",
+    "provenance_chain": [
+      "refs.bib:cw083"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:88",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw072}",
+    "supported_verdict_id": "bib:cw072",
+    "provenance_chain": [
+      "refs.bib:cw072"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:90",
+    "kind": "citation",
+    "assertion_text": "\\citep{qiu2024autobench}",
+    "supported_verdict_id": "bib:qiu2024autobench",
+    "provenance_chain": [
+      "refs.bib:qiu2024autobench"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:92",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw112}",
+    "supported_verdict_id": "bib:cw112",
+    "provenance_chain": [
+      "refs.bib:cw112"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:92",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw012}",
+    "supported_verdict_id": "bib:cw012",
+    "provenance_chain": [
+      "refs.bib:cw012"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:197",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw022}",
+    "supported_verdict_id": "bib:cw022",
+    "provenance_chain": [
+      "refs.bib:cw022"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:228",
+    "kind": "citation",
+    "assertion_text": "\\citep{lu2024rtllm}",
+    "supported_verdict_id": "bib:lu2024rtllm",
+    "provenance_chain": [
+      "refs.bib:lu2024rtllm"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:233",
+    "kind": "citation",
+    "assertion_text": "\\citep{liu2023verilogeval}",
+    "supported_verdict_id": "bib:liu2023verilogeval",
+    "provenance_chain": [
+      "refs.bib:liu2023verilogeval"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:233",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw068}",
+    "supported_verdict_id": "bib:cw068",
+    "provenance_chain": [
+      "refs.bib:cw068"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:273",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.direct}{mkc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.direct.mkc",
+    "provenance_chain": [
+      "ledger:e1.direct::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:273",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.direct}{fpr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.direct.fpr",
+    "provenance_chain": [
+      "ledger:e1.direct::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:273",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.direct}{ffr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.direct.ffr",
+    "provenance_chain": [
+      "ledger:e1.direct::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:273",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.direct}{wc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.direct.wc",
+    "provenance_chain": [
+      "ledger:e1.direct::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:274",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.cov}{mkc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.cov.mkc",
+    "provenance_chain": [
+      "ledger:e1.cov::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:274",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.cov}{fpr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.cov.fpr",
+    "provenance_chain": [
+      "ledger:e1.cov::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:274",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.cov}{ffr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.cov.ffr",
+    "provenance_chain": [
+      "ledger:e1.cov::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:274",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.cov}{wc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.cov.wc",
+    "provenance_chain": [
+      "ledger:e1.cov::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:275",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.formalonly}{mkc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.formalonly.mkc",
+    "provenance_chain": [
+      "ledger:e1.formalonly::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:275",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.formalonly}{fpr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.formalonly.fpr",
+    "provenance_chain": [
+      "ledger:e1.formalonly::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:275",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.formalonly}{ffr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.formalonly.ffr",
+    "provenance_chain": [
+      "ledger:e1.formalonly::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:275",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.formalonly}{wc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.formalonly.wc",
+    "provenance_chain": [
+      "ledger:e1.formalonly::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:276",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.det}{mkc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.det.mkc",
+    "provenance_chain": [
+      "ledger:e1.det::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:276",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.det}{fpr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.det.fpr",
+    "provenance_chain": [
+      "ledger:e1.det::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:276",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.det}{ffr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.det.ffr",
+    "provenance_chain": [
+      "ledger:e1.det::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:276",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.det}{wc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.det.wc",
+    "provenance_chain": [
+      "ledger:e1.det::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:277",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.coev}{mkc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.coev.mkc",
+    "provenance_chain": [
+      "ledger:e1.coev::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:277",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.coev}{fpr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.coev.fpr",
+    "provenance_chain": [
+      "ledger:e1.coev::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:277",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.coev}{ffr}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.coev.ffr",
+    "provenance_chain": [
+      "ledger:e1.coev::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:277",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e1.coev}{wc}",
+    "supported_verdict_id": "evidence/o02_e1_aggregate.json::e1.coev.wc",
+    "provenance_chain": [
+      "ledger:e1.coev::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:335",
+    "kind": "citation",
+    "assertion_text": "\\citep{goldie2024thatchip}",
+    "supported_verdict_id": "bib:goldie2024thatchip",
+    "provenance_chain": [
+      "refs.bib:goldie2024thatchip"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:336",
+    "kind": "citation",
+    "assertion_text": "\\citep{markov2023falsedawn}",
+    "supported_verdict_id": "bib:markov2023falsedawn",
+    "provenance_chain": [
+      "refs.bib:markov2023falsedawn"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:345",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw004}",
+    "supported_verdict_id": "bib:cw004",
+    "provenance_chain": [
+      "refs.bib:cw004"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:345",
+    "kind": "citation",
+    "assertion_text": "\\citep{markov2023falsedawn}",
+    "supported_verdict_id": "bib:markov2023falsedawn",
+    "provenance_chain": [
+      "refs.bib:markov2023falsedawn"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:345",
+    "kind": "citation",
+    "assertion_text": "\\citep{goldie2024thatchip}",
+    "supported_verdict_id": "bib:goldie2024thatchip",
+    "provenance_chain": [
+      "refs.bib:goldie2024thatchip"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:349",
+    "kind": "citation",
+    "assertion_text": "\\citep{qiu2024autobench}",
+    "supported_verdict_id": "bib:qiu2024autobench",
+    "provenance_chain": [
+      "refs.bib:qiu2024autobench"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:349",
+    "kind": "citation",
+    "assertion_text": "\\citep{qiu2024correctbench}",
+    "supported_verdict_id": "bib:qiu2024correctbench",
+    "provenance_chain": [
+      "refs.bib:qiu2024correctbench"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:349",
+    "kind": "citation",
+    "assertion_text": "\\citep{huang2026stg}",
+    "supported_verdict_id": "bib:huang2026stg",
+    "provenance_chain": [
+      "refs.bib:huang2026stg"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:349",
+    "kind": "citation",
+    "assertion_text": "\\citep{fang2024assertllm}",
+    "supported_verdict_id": "bib:fang2024assertllm",
+    "provenance_chain": [
+      "refs.bib:fang2024assertllm"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:349",
+    "kind": "citation",
+    "assertion_text": "\\citep{yubeaton2025verithoughts}",
+    "supported_verdict_id": "bib:yubeaton2025verithoughts",
+    "provenance_chain": [
+      "refs.bib:yubeaton2025verithoughts"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:349",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw044}",
+    "supported_verdict_id": "bib:cw044",
+    "provenance_chain": [
+      "refs.bib:cw044"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:352",
+    "kind": "citation",
+    "assertion_text": "\\citep{wan2026fixme}",
+    "supported_verdict_id": "bib:wan2026fixme",
+    "provenance_chain": [
+      "refs.bib:wan2026fixme"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:354",
+    "kind": "citation",
+    "assertion_text": "\\citep{wolf2015yosys}",
+    "supported_verdict_id": "bib:wolf2015yosys",
+    "provenance_chain": [
+      "refs.bib:wolf2015yosys"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:354",
+    "kind": "citation",
+    "assertion_text": "\\citep{wolf2016sbyformal}",
+    "supported_verdict_id": "bib:wolf2016sbyformal",
+    "provenance_chain": [
+      "refs.bib:wolf2016sbyformal"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:355",
+    "kind": "citation",
+    "assertion_text": "\\citep{biere2003bmc}",
+    "supported_verdict_id": "bib:biere2003bmc",
+    "provenance_chain": [
+      "refs.bib:biere2003bmc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:355",
+    "kind": "citation",
+    "assertion_text": "\\citep{clarke1999modelchecking}",
+    "supported_verdict_id": "bib:clarke1999modelchecking",
+    "provenance_chain": [
+      "refs.bib:clarke1999modelchecking"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:356",
+    "kind": "citation",
+    "assertion_text": "\\citep{zhao2024mage}",
+    "supported_verdict_id": "bib:zhao2024mage",
+    "provenance_chain": [
+      "refs.bib:zhao2024mage"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:356",
+    "kind": "citation",
+    "assertion_text": "\\citep{he2023chateda}",
+    "supported_verdict_id": "bib:he2023chateda",
+    "provenance_chain": [
+      "refs.bib:he2023chateda"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:356",
+    "kind": "citation",
+    "assertion_text": "\\citep{deng2026rtl2gds}",
+    "supported_verdict_id": "bib:deng2026rtl2gds",
+    "provenance_chain": [
+      "refs.bib:deng2026rtl2gds"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:357",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw056}",
+    "supported_verdict_id": "bib:cw056",
+    "provenance_chain": [
+      "refs.bib:cw056"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:402",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw014}",
+    "supported_verdict_id": "bib:cw014",
+    "provenance_chain": [
+      "refs.bib:cw014"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:412",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw117}",
+    "supported_verdict_id": "bib:cw117",
+    "provenance_chain": [
+      "refs.bib:cw117"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:451",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw096}",
+    "supported_verdict_id": "bib:cw096",
+    "provenance_chain": [
+      "refs.bib:cw096"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:452",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw106}",
+    "supported_verdict_id": "bib:cw106",
+    "provenance_chain": [
+      "refs.bib:cw106"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:453",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw093}",
+    "supported_verdict_id": "bib:cw093",
+    "provenance_chain": [
+      "refs.bib:cw093"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:453",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw064}",
+    "supported_verdict_id": "bib:cw064",
+    "provenance_chain": [
+      "refs.bib:cw064"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:454",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw070}",
+    "supported_verdict_id": "bib:cw070",
+    "provenance_chain": [
+      "refs.bib:cw070"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:455",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw073}",
+    "supported_verdict_id": "bib:cw073",
+    "provenance_chain": [
+      "refs.bib:cw073"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:456",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw050}",
+    "supported_verdict_id": "bib:cw050",
+    "provenance_chain": [
+      "refs.bib:cw050"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:456",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw124}",
+    "supported_verdict_id": "bib:cw124",
+    "provenance_chain": [
+      "refs.bib:cw124"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:458",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw054}",
+    "supported_verdict_id": "bib:cw054",
+    "provenance_chain": [
+      "refs.bib:cw054"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:459",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw104}",
+    "supported_verdict_id": "bib:cw104",
+    "provenance_chain": [
+      "refs.bib:cw104"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:459",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw097}",
+    "supported_verdict_id": "bib:cw097",
+    "provenance_chain": [
+      "refs.bib:cw097"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:460",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw120}",
+    "supported_verdict_id": "bib:cw120",
+    "provenance_chain": [
+      "refs.bib:cw120"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:461",
+    "kind": "citation",
+    "assertion_text": "\\citep{cw078}",
+    "supported_verdict_id": "bib:cw078",
+    "provenance_chain": [
+      "refs.bib:cw078"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:515",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.direct}{mkc}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.mkc",
+    "provenance_chain": [
+      "ledger:e2p.direct::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:515",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.direct}{fpr}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.fpr",
+    "provenance_chain": [
+      "ledger:e2p.direct::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:515",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.direct}{ffr}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.ffr",
+    "provenance_chain": [
+      "ledger:e2p.direct::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:515",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.direct}{wc}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.wc",
+    "provenance_chain": [
+      "ledger:e2p.direct::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:515",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.direct}{transfer_score}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.direct.transfer_score",
+    "provenance_chain": [
+      "ledger:e2p.direct::transfer_score"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:516",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.det}{mkc}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.det.mkc",
+    "provenance_chain": [
+      "ledger:e2p.det::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:516",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.det}{fpr}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.det.fpr",
+    "provenance_chain": [
+      "ledger:e2p.det::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:516",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.det}{ffr}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.det.ffr",
+    "provenance_chain": [
+      "ledger:e2p.det::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:516",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.det}{wc}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.det.wc",
+    "provenance_chain": [
+      "ledger:e2p.det::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:516",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.det}{transfer_score}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.det.transfer_score",
+    "provenance_chain": [
+      "ledger:e2p.det::transfer_score"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:517",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.coev}{mkc}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.mkc",
+    "provenance_chain": [
+      "ledger:e2p.coev::mkc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:517",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.coev}{fpr}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.fpr",
+    "provenance_chain": [
+      "ledger:e2p.coev::fpr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:517",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.coev}{ffr}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.ffr",
+    "provenance_chain": [
+      "ledger:e2p.coev::ffr"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:517",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.coev}{wc}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.wc",
+    "provenance_chain": [
+      "ledger:e2p.coev::wc"
+    ],
+    "notes": ""
+  },
+  {
+    "source_span": "papers/p_chipdesign_o02_verifynext/main.tex:517",
+    "kind": "result_cell",
+    "assertion_text": "\\ResultCell{e2p.coev}{transfer_score}",
+    "supported_verdict_id": "evidence/o02_e2_pilot_aggregate.json::e2p.coev.transfer_score",
+    "provenance_chain": [
+      "ledger:e2p.coev::transfer_score"
+    ],
+    "notes": ""
+  }
+]
