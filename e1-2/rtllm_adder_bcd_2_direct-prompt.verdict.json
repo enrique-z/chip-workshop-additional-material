@@ -1,0 +1,123 @@
+{
+  "cell": {
+    "design_id": "rtllm::adder_bcd",
+    "seed": 2,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 3,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 1.962104082107544,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 2040,
+    "scalar_cost_used": 8.082104082107545,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_ed34431dfdd2",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 2040,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_057cef82615e",
+      "testbench_id": "tb_11332ab5f13f",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.21545696258544922,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.21545696258544922,
+      "llm_tokens": 0,
+      "counterexample_trace": "Pass/Fail summary: Done\n"
+    },
+    {
+      "verdict_id": "sim_caa38298c0b0",
+      "testbench_id": "tb_19f3f309e600",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.9125401973724365,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.9125401973724365,
+      "llm_tokens": 0,
+      "counterexample_trace": "Pass/Fail summary: Done\n"
+    },
+    {
+      "verdict_id": "sim_90f9accb9149",
+      "testbench_id": "tb_0f77cd0c80fc",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.8341069221496582,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.8341069221496582,
+      "llm_tokens": 0,
+      "counterexample_trace": "Pass/Fail summary: Done\n"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_adder_bcd_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte476",
+      "intended_effect": "inverted RHS of 'assign temp_sum = A + B + Cin;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte584",
+      "intended_effect": "inverted RHS of 'assign carry_out = (temp_sum > 9) ? 1 : 0;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte476",
+      "intended_effect": "forced RHS of 'assign temp_sum = A + B + Cin;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_stuck_at_0_1",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte584",
+      "intended_effect": "forced RHS of 'assign carry_out = (temp_sum > 9) ? 1 : 0;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte476",
+      "intended_effect": "forced RHS of 'assign temp_sum = A + B + Cin;' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}

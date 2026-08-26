@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "rtllm::comparator_4bit",
+    "seed": 1,
+    "system": "bounded-formal-only",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 5,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 2.6054770946502686,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 2.6054770946502686,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_70cb66c1adcf",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_4bit_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.6742138862609863,
+      "smt_seconds": 0.6742138862609863,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_bc890e49792f",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_4bit_signal_invert_rhs_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.35303378105163574,
+      "smt_seconds": 0.35303378105163574,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_aa5920276fcc",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_4bit_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.3946850299835205,
+      "smt_seconds": 0.3946850299835205,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_7054bf804302",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_4bit_stuck_at_0_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.6163163185119629,
+      "smt_seconds": 0.6163163185119629,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_2ed0a4aeafd6",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_4bit_stuck_at_1_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.5672280788421631,
+      "smt_seconds": 0.5672280788421631,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_comparator_4bit_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_4bit/verified_comparator_4bit.v:byte343",
+      "intended_effect": "inverted RHS of 'assign A_greater = (~cout && diff != 4'b0000);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_4bit_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_4bit/verified_comparator_4bit.v:byte394",
+      "intended_effect": "inverted RHS of 'assign A_equal = (A == B);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_4bit_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_4bit/verified_comparator_4bit.v:byte343",
+      "intended_effect": "forced RHS of 'assign A_greater = (~cout && diff != 4'b0000);' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_4bit_stuck_at_0_1",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_4bit/verified_comparator_4bit.v:byte394",
+      "intended_effect": "forced RHS of 'assign A_equal = (A == B);' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_4bit_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_4bit/verified_comparator_4bit.v:byte343",
+      "intended_effect": "forced RHS of 'assign A_greater = (~cout && diff != 4'b0000);' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "cell": {
+    "design_id": "rtllm::JC_counter",
+    "seed": 0,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 4,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 1,
+    "n_engine_errors": 8,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.4397437572479248,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 1676,
+    "scalar_cost_used": 5.467743757247924,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 12,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_04eae74767b0",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1676,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_e1fbc37967e1",
+      "testbench_id": "tb_3176d2f5a530",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.053795814514160156,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.053795814514160156,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\nruns/e1/sim/e1fbc37967e1/tb.sv:1: $finish called at 35000000000 (1ns)\n"
+    },
+    {
+      "verdict_id": "sim_0721b61b2416",
+      "testbench_id": "tb_6faa3284369b",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.051889896392822266,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.051889896392822266,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_c6a3f567daca",
+      "testbench_id": "tb_6faa3284369b",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_constant_flip_0_to_1_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03629422187805176,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.036295175552368164,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/c6a3f567daca/tb.sv:1: error: Unknown module type: verified_JC_counter\n2 error(s) during elaboration.\n*** These modules were missing:\n        verified_JC_counter referenced 1 times.\n***\n"
+    },
+    {
+      "verdict_id": "sim_909394db1f03",
+      "testbench_id": "tb_6faa3284369b",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_constant_flip_1_to_0_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.034690141677856445,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.034690141677856445,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/909394db1f03/tb.sv:1: error: Unknown module type: verified_JC_counter\n2 error(s) during elaboration.\n*** These modules were missing:\n        verified_JC_counter referenced 1 times.\n***\n"
+    },
+    {
+      "verdict_id": "sim_967292a305cf",
+      "testbench_id": "tb_6faa3284369b",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03519916534423828,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.03520011901855469,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/967292a305cf/compare_op_swap_0.v:10: syntax error\nruns/e1/sim/967292a305cf/compare_op_swap_0.v:10: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_1e049432155c",
+      "testbench_id": "tb_6faa3284369b",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03415822982788086,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.03415822982788086,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/1e049432155c/compare_op_swap_1.v:11: syntax error\nruns/e1/sim/1e049432155c/compare_op_swap_1.v:11: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_a6690c065de1",
+      "testbench_id": "tb_529774b8a5fb",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.053488969802856445,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.053488969802856445,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_c06c26ed50cd",
+      "testbench_id": "tb_529774b8a5fb",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_constant_flip_0_to_1_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03606820106506348,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.03606820106506348,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/c06c26ed50cd/tb.sv:1: error: Unknown module type: verified_JC_counter\n2 error(s) during elaboration.\n*** These modules were missing:\n        verified_JC_counter referenced 1 times.\n***\n"
+    },
+    {
+      "verdict_id": "sim_7e7be12251a2",
+      "testbench_id": "tb_529774b8a5fb",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_constant_flip_1_to_0_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03439927101135254,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.03439927101135254,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/7e7be12251a2/tb.sv:1: error: Unknown module type: verified_JC_counter\n2 error(s) during elaboration.\n*** These modules were missing:\n        verified_JC_counter referenced 1 times.\n***\n"
+    },
+    {
+      "verdict_id": "sim_9d7ca5dbee15",
+      "testbench_id": "tb_529774b8a5fb",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.034750938415527344,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.034750938415527344,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/9d7ca5dbee15/compare_op_swap_0.v:10: syntax error\nruns/e1/sim/9d7ca5dbee15/compare_op_swap_0.v:10: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_34ab9eb28783",
+      "testbench_id": "tb_529774b8a5fb",
+      "property_id": null,
+      "mutation_id": "m_JC_counter_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03500699996948242,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.03500699996948242,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/34ab9eb28783/compare_op_swap_1.v:11: syntax error\nruns/e1/sim/34ab9eb28783/compare_op_swap_1.v:11: error: Malformed statement\n"
+    }
+  ],
+  "n_mutants": 4,
+  "mutants": [
+    {
+      "mutation_id": "m_JC_counter_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte285",
+      "intended_effect": "flipped constant 0\u21921 at token '1'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_JC_counter_constant_flip_1_to_0_0",
+      "operator": "constant_flip_1_to_0",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte248",
+      "intended_effect": "flipped constant 1\u21920 at token '1'b1'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_JC_counter_compare_op_swap_0",
+      "operator": "compare_op_swap",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte211",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_JC_counter_compare_op_swap_1",
+      "operator": "compare_op_swap",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte244",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    }
+  ]
+}

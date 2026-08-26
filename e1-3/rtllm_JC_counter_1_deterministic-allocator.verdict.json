@@ -1,0 +1,116 @@
+{
+  "cell": {
+    "design_id": "rtllm::JC_counter",
+    "seed": 1,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 4,
+    "n_mutants_killed": 2,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.5,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 2,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 1.2578098773956299,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 1.2578098773956299,
+    "mutation_kill_per_scalar_cost": 1.5900654271702166
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "miter_bfa35625db7c",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_JC_counter_constant_flip_0_to_1_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.3771169185638428,
+      "smt_seconds": 0.3771169185638428,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/bfa35625db7c/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_4ced6d56ed60",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_JC_counter_constant_flip_1_to_0_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.3986542224884033,
+      "smt_seconds": 0.3986542224884033,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/4ced6d56ed60/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_871b5a9c1912",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_JC_counter_compare_op_swap_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.17667889595031738,
+      "smt_seconds": 0.17667889595031738,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_c5b553682bc4",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_JC_counter_compare_op_swap_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.3053598403930664,
+      "smt_seconds": 0.3053598403930664,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 4,
+  "mutants": [
+    {
+      "mutation_id": "m_JC_counter_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte285",
+      "intended_effect": "flipped constant 0\u21921 at token '1'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_JC_counter_constant_flip_1_to_0_0",
+      "operator": "constant_flip_1_to_0",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte248",
+      "intended_effect": "flipped constant 1\u21920 at token '1'b1'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_JC_counter_compare_op_swap_0",
+      "operator": "compare_op_swap",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte211",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_JC_counter_compare_op_swap_1",
+      "operator": "compare_op_swap",
+      "site": "corpora/RTLLM/Control/Counter/JC_counter/verified_JC_counter.v:byte244",
+      "intended_effect": "swapped compare op at token '<='",
+      "origin": "allocator"
+    }
+  ]
+}

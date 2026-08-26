@@ -1,0 +1,228 @@
+{
+  "cell": {
+    "design_id": "rtllm::LFSR",
+    "seed": 0,
+    "system": "coverage-guided",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 4,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 4,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 3,
+    "n_engine_errors": 2,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.5340292453765869,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 2806,
+    "scalar_cost_used": 8.952029245376586,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 12,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_8d4fcac0f0ae",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1423,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_01d5a29dbf2c",
+      "testbench_id": "tb_e64cd1612fc6",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.06982707977294922,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06982707977294922,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_34e330fbf693",
+      "testbench_id": "tb_e64cd1612fc6",
+      "property_id": null,
+      "mutation_id": "m_LFSR_constant_flip_0_to_1_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.0503690242767334,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0503690242767334,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_457e312869d8",
+      "testbench_id": "tb_e64cd1612fc6",
+      "property_id": null,
+      "mutation_id": "m_LFSR_signal_invert_rhs_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.0513460636138916,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0513460636138916,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_de57c6f5802f",
+      "testbench_id": "tb_e64cd1612fc6",
+      "property_id": null,
+      "mutation_id": "m_LFSR_stuck_at_0_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.05055999755859375,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05055999755859375,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_1d525f966dd6",
+      "testbench_id": "tb_e64cd1612fc6",
+      "property_id": null,
+      "mutation_id": "m_LFSR_stuck_at_1_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.052145957946777344,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.052145957946777344,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_a3d361720863",
+      "testbench_id": "tb_713c1c0674f9",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.052139997482299805,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.052139997482299805,
+      "llm_tokens": 0,
+      "counterexample_trace": "Fail\nruns/e1/sim/a3d361720863/tb.sv:11: $finish called at 65 (1s)\n"
+    },
+    {
+      "verdict_id": "sim_14f7a70cf569",
+      "testbench_id": "tb_06d32c38b695",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.05283999443054199,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05283999443054199,
+      "llm_tokens": 0,
+      "counterexample_trace": "Fail\nruns/e1/sim/14f7a70cf569/tb.sv:11: $finish called at 165 (1s)\n"
+    },
+    {
+      "verdict_id": "llm_gen_8b1628c4dd51",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1383,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_eee54f9bca64",
+      "testbench_id": "tb_04b2dccfbc06",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.05413413047790527,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05413413047790527,
+      "llm_tokens": 0,
+      "counterexample_trace": "Fail\nruns/e1/sim/eee54f9bca64/tb.sv:1: $finish called at 175 (1s)\n"
+    },
+    {
+      "verdict_id": "sim_2b83c638eb67",
+      "testbench_id": "tb_41422adc5a6b",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.0496220588684082,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0496220588684082,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_fbbc58c98835",
+      "testbench_id": "tb_7fee78729ad2",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.05104494094848633,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05104494094848633,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 4,
+  "mutants": [
+    {
+      "mutation_id": "m_LFSR_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte198",
+      "intended_effect": "flipped constant 0\u21921 at token '4'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "inverted RHS of 'assign feedback = ~(out[3] ^ out[2]);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}

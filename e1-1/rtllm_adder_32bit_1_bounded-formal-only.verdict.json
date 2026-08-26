@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "rtllm::adder_32bit",
+    "seed": 1,
+    "system": "bounded-formal-only",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 2,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 2,
+    "n_timeouts": 1,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 83.71422410011292,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 83.71422410011292,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_8486ca11f80f",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_32bit_bitwise_and_to_or_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 14.004951000213623,
+      "smt_seconds": 14.004951000213623,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_13c75900cc33",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_32bit_bitwise_and_to_or_1",
+      "engine": "sby+z3",
+      "outcome": "timeout",
+      "origin": "allocator",
+      "wall_seconds": 30.97360110282898,
+      "smt_seconds": 30.97360110282898,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_4f93da614719",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_32bit_bitwise_or_to_and_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 25.893272161483765,
+      "smt_seconds": 25.893272161483765,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_bf7b18b9d531",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_32bit_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 8.532367944717407,
+      "smt_seconds": 8.532367944717407,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_4741c014e6de",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_32bit_signal_invert_rhs_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 4.310031890869141,
+      "smt_seconds": 4.310031890869141,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_adder_32bit_bitwise_and_to_or_0",
+      "operator": "bitwise_and_to_or",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte1439",
+      "intended_effect": "swapped bitwise & \u2192 | (weakened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_bitwise_and_to_or_1",
+      "operator": "bitwise_and_to_or",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte1475",
+      "intended_effect": "swapped bitwise & \u2192 | (weakened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_bitwise_or_to_and_0",
+      "operator": "bitwise_or_to_and",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte3812",
+      "intended_effect": "swapped bitwise | \u2192 & (strengthened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte451",
+      "intended_effect": "inverted RHS of 'assign c16 = gx1 ^ (px1 && 0), //c0 = 0\n         C32 = gx2 ^'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte1409",
+      "intended_effect": "inverted RHS of 'assign   c4 = Gm1 ^ (Pm1 & c0),\n             c8 = Gm2 ^ (Pm2'",
+      "origin": "allocator"
+    }
+  ]
+}

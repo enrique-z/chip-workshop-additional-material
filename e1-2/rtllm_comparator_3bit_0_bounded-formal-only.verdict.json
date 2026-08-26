@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "rtllm::comparator_3bit",
+    "seed": 0,
+    "system": "bounded-formal-only",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 5,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 6.306142568588257,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 6.306142568588257,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_2a5aa7060a77",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_3bit_constant_flip_0_to_1_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 2.7394931316375732,
+      "smt_seconds": 2.7394931316375732,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_2586023a77f6",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_3bit_constant_flip_0_to_1_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 1.7392048835754395,
+      "smt_seconds": 1.7392048835754395,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_52c0c9636921",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_3bit_constant_flip_1_to_0_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.4712502956390381,
+      "smt_seconds": 0.4712502956390381,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_20de835ab1eb",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_3bit_constant_flip_1_to_0_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.9434890747070312,
+      "smt_seconds": 0.9434890747070312,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_bd83524d131f",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_comparator_3bit_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.4127051830291748,
+      "smt_seconds": 0.4127051830291748,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte167",
+      "intended_effect": "flipped constant 0\u21921 at token '1'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_0_to_1_1",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte212",
+      "intended_effect": "flipped constant 0\u21921 at token '1'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_1_to_0_0",
+      "operator": "constant_flip_1_to_0",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte160",
+      "intended_effect": "flipped constant 1\u21920 at token '1'b1'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_constant_flip_1_to_0_1",
+      "operator": "constant_flip_1_to_0",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte205",
+      "intended_effect": "flipped constant 1\u21920 at token '1'b1'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_comparator_3bit_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Comparator/comparator_3bit/verified_comparator_3bit.v:byte126",
+      "intended_effect": "inverted RHS of 'assign A_greater = (A > B) ? 1'b1 : 1'b0;'",
+      "origin": "allocator"
+    }
+  ]
+}

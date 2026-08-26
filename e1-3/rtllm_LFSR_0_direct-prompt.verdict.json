@@ -1,0 +1,116 @@
+{
+  "cell": {
+    "design_id": "rtllm::LFSR",
+    "seed": 0,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 4,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 3,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.22395563125610352,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 1363,
+    "scalar_cost_used": 4.312955631256104,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_6a0f2c73b186",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1363,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_5f9c60fab0bc",
+      "testbench_id": "tb_e64cd1612fc6",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.11686110496520996,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.11686110496520996,
+      "llm_tokens": 0,
+      "counterexample_trace": "Pass/Fail summary: out=1110\nruns/e1/sim/5f9c60fab0bc/tb.sv:1: $finish called at 205 (1s)\n"
+    },
+    {
+      "verdict_id": "sim_569dbcb39d5f",
+      "testbench_id": "tb_713c1c0674f9",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.0531766414642334,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0531766414642334,
+      "llm_tokens": 0,
+      "counterexample_trace": "Pass/Fail summary: out=1001\nruns/e1/sim/569dbcb39d5f/tb.sv:1: $finish called at 265 (1s)\n"
+    },
+    {
+      "verdict_id": "sim_79f90fdb5591",
+      "testbench_id": "tb_06d32c38b695",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.053917884826660156,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.053917884826660156,
+      "llm_tokens": 0,
+      "counterexample_trace": "Pass/Fail summary: out=xxxx\nruns/e1/sim/79f90fdb5591/tb.sv:1: $finish called at 305 (1s)\n"
+    }
+  ],
+  "n_mutants": 4,
+  "mutants": [
+    {
+      "mutation_id": "m_LFSR_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte198",
+      "intended_effect": "flipped constant 0\u21921 at token '4'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "inverted RHS of 'assign feedback = ~(out[3] ^ out[2]);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}

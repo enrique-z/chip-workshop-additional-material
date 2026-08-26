@@ -1,0 +1,263 @@
+{
+  "cell": {
+    "design_id": "rtllm::accu",
+    "seed": 0,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 3,
+    "n_mutants_survived": 5,
+    "kill_rate": 0.6,
+    "n_false_fail_on_ref": 1,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.8417539596557617,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 2342,
+    "scalar_cost_used": 7.8677539596557615,
+    "mutation_kill_per_scalar_cost": 0.3813032302971583
+  },
+  "n_verdicts": 14,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_3ea772e52176",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 2342,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_8b5dd09f3975",
+      "testbench_id": "tb_6b96b490fbfd",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.07911825180053711,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.07911825180053711,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_895057dfaeed",
+      "testbench_id": "tb_6b96b490fbfd",
+      "property_id": null,
+      "mutation_id": "m_accu_bitwise_or_to_and_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.054975032806396484,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.054975032806396484,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_f54175c8677e",
+      "testbench_id": "tb_6b96b490fbfd",
+      "property_id": null,
+      "mutation_id": "m_accu_signal_invert_rhs_0",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.05817294120788574,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05817294120788574,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\nruns/e1/sim/f54175c8677e/tb.sv:1: $finish called at 125000000000 (1ns)\n"
+    },
+    {
+      "verdict_id": "sim_875c729bf47f",
+      "testbench_id": "tb_6b96b490fbfd",
+      "property_id": null,
+      "mutation_id": "m_accu_signal_invert_rhs_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.0548701286315918,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0548701286315918,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_ebc94c1c3f1c",
+      "testbench_id": "tb_6b96b490fbfd",
+      "property_id": null,
+      "mutation_id": "m_accu_stuck_at_0_0",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.05456733703613281,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05456733703613281,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\nruns/e1/sim/ebc94c1c3f1c/tb.sv:1: $finish called at 125000000000 (1ns)\n"
+    },
+    {
+      "verdict_id": "sim_414e93507632",
+      "testbench_id": "tb_6b96b490fbfd",
+      "property_id": null,
+      "mutation_id": "m_accu_stuck_at_0_1",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.05843091011047363,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05843091011047363,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\nruns/e1/sim/414e93507632/tb.sv:1: $finish called at 125000000000 (1ns)\n"
+    },
+    {
+      "verdict_id": "sim_ea4b31868d63",
+      "testbench_id": "tb_8d820e6d7481",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.05745720863342285,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05745720863342285,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\nruns/e1/sim/ea4b31868d63/tb.sv:1: $finish called at 165000000000 (1ns)\n"
+    },
+    {
+      "verdict_id": "sim_dfda910389d0",
+      "testbench_id": "tb_b0da789bec06",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.06169009208679199,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06169009208679199,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_e9eeb3a6996a",
+      "testbench_id": "tb_b0da789bec06",
+      "property_id": null,
+      "mutation_id": "m_accu_bitwise_or_to_and_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.06104707717895508,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06104707717895508,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_95e536c9034e",
+      "testbench_id": "tb_b0da789bec06",
+      "property_id": null,
+      "mutation_id": "m_accu_signal_invert_rhs_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.0634908676147461,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0634908676147461,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_0bfaea5270f6",
+      "testbench_id": "tb_b0da789bec06",
+      "property_id": null,
+      "mutation_id": "m_accu_signal_invert_rhs_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.06799793243408203,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06799793243408203,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_8ad6de934293",
+      "testbench_id": "tb_b0da789bec06",
+      "property_id": null,
+      "mutation_id": "m_accu_stuck_at_0_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.09917902946472168,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.09917902946472168,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_4656cece1a69",
+      "testbench_id": "tb_b0da789bec06",
+      "property_id": null,
+      "mutation_id": "m_accu_stuck_at_0_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.07075715065002441,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.07075715065002441,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_accu_bitwise_or_to_and_0",
+      "operator": "bitwise_or_to_and",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte1382",
+      "intended_effect": "swapped bitwise | \u2192 & (strengthened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte383",
+      "intended_effect": "inverted RHS of 'assign add_cnt = ready_add;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte415",
+      "intended_effect": "inverted RHS of 'assign end_cnt = ready_add && (count == 'd3);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte383",
+      "intended_effect": "forced RHS of 'assign add_cnt = ready_add;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_stuck_at_0_1",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte415",
+      "intended_effect": "forced RHS of 'assign end_cnt = ready_add && (count == 'd3);' to all-zeros",
+      "origin": "allocator"
+    }
+  ]
+}

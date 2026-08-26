@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "rtllm::adder_bcd",
+    "seed": 1,
+    "system": "bounded-formal-only",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 5,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 17.79828190803528,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 17.79828190803528,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_54447d38f045",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_bcd_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 5.826371908187866,
+      "smt_seconds": 5.826371908187866,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_9d3fff9a120e",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_bcd_signal_invert_rhs_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 4.096841096878052,
+      "smt_seconds": 4.096841096878052,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_77b6adc2401c",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_bcd_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 2.400491714477539,
+      "smt_seconds": 2.400491714477539,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_db0db24c111c",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_bcd_stuck_at_0_1",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 3.7119741439819336,
+      "smt_seconds": 3.7119741439819336,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_5a9a415409f7",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_adder_bcd_stuck_at_1_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 1.7626030445098877,
+      "smt_seconds": 1.7626030445098877,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_adder_bcd_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte476",
+      "intended_effect": "inverted RHS of 'assign temp_sum = A + B + Cin;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte584",
+      "intended_effect": "inverted RHS of 'assign carry_out = (temp_sum > 9) ? 1 : 0;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte476",
+      "intended_effect": "forced RHS of 'assign temp_sum = A + B + Cin;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_stuck_at_0_1",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte584",
+      "intended_effect": "forced RHS of 'assign carry_out = (temp_sum > 9) ? 1 : 0;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_bcd_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_bcd/verified_adder_bcd.v:byte476",
+      "intended_effect": "forced RHS of 'assign temp_sum = A + B + Cin;' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}
