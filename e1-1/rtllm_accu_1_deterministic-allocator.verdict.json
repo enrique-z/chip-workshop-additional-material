@@ -1,0 +1,137 @@
+{
+  "cell": {
+    "design_id": "rtllm::accu",
+    "seed": 1,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 5,
+    "n_mutants_survived": 0,
+    "kill_rate": 1.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 3.4173269271850586,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 3.4173269271850586,
+    "mutation_kill_per_scalar_cost": 1.4631318883261282
+  },
+  "n_verdicts": 5,
+  "verdicts": [
+    {
+      "verdict_id": "miter_6a2076e1a996",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_accu_bitwise_or_to_and_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 1.2886168956756592,
+      "smt_seconds": 1.2886168956756592,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/6a2076e1a996/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_2562f343d079",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_accu_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.5316789150238037,
+      "smt_seconds": 0.5316789150238037,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/2562f343d079/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_cf473f633d43",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_accu_signal_invert_rhs_1",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.489408016204834,
+      "smt_seconds": 0.489408016204834,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/cf473f633d43/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_c4acfb991211",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_accu_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.5909638404846191,
+      "smt_seconds": 0.5909638404846191,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/c4acfb991211/miter/engine_0/trace.vcd"
+    },
+    {
+      "verdict_id": "miter_14967db0c5a1",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_accu_stuck_at_0_1",
+      "engine": "sby+z3",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.5166592597961426,
+      "smt_seconds": 0.5166592597961426,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/mutants/miter/14967db0c5a1/miter/engine_0/trace.vcd"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_accu_bitwise_or_to_and_0",
+      "operator": "bitwise_or_to_and",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte1382",
+      "intended_effect": "swapped bitwise | \u2192 & (strengthened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte383",
+      "intended_effect": "inverted RHS of 'assign add_cnt = ready_add;'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte415",
+      "intended_effect": "inverted RHS of 'assign end_cnt = ready_add && (count == 'd3);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte383",
+      "intended_effect": "forced RHS of 'assign add_cnt = ready_add;' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_accu_stuck_at_0_1",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Arithmetic/Accumulator/accu/verified_accu.v:byte415",
+      "intended_effect": "forced RHS of 'assign end_cnt = ready_add && (count == 'd3);' to all-zeros",
+      "origin": "allocator"
+    }
+  ]
+}

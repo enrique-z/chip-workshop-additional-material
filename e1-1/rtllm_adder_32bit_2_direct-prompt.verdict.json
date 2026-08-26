@@ -1,0 +1,123 @@
+{
+  "cell": {
+    "design_id": "rtllm::adder_32bit",
+    "seed": 2,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 3,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.7515168190002441,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 2497,
+    "scalar_cost_used": 8.242516819000244,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_ffdf04514b94",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 2497,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_d0eaab18d2b6",
+      "testbench_id": "tb_0917f2b61599",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.2275998592376709,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.2275998592376709,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_9c314c0d6c2b",
+      "testbench_id": "tb_572eb15feb40",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.1481180191040039,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.1481180191040039,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_033014a6fbee",
+      "testbench_id": "tb_14fd547a1a82",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.37579894065856934,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.37579894065856934,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_adder_32bit_bitwise_and_to_or_0",
+      "operator": "bitwise_and_to_or",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte1439",
+      "intended_effect": "swapped bitwise & \u2192 | (weakened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_bitwise_and_to_or_1",
+      "operator": "bitwise_and_to_or",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte1475",
+      "intended_effect": "swapped bitwise & \u2192 | (weakened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_bitwise_or_to_and_0",
+      "operator": "bitwise_or_to_and",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte3812",
+      "intended_effect": "swapped bitwise | \u2192 & (strengthened conjunction)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte451",
+      "intended_effect": "inverted RHS of 'assign c16 = gx1 ^ (px1 && 0), //c0 = 0\n         C32 = gx2 ^'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_adder_32bit_signal_invert_rhs_1",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Arithmetic/Adder/adder_32bit/verified_adder_32bit.v:byte1409",
+      "intended_effect": "inverted RHS of 'assign   c4 = Gm1 ^ (Pm1 & c0),\n             c8 = Gm2 ^ (Pm2'",
+      "origin": "allocator"
+    }
+  ]
+}
