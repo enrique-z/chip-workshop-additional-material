@@ -1,0 +1,87 @@
+{
+  "cell": {
+    "design_id": "rtllm::sub_64bit",
+    "seed": 2,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 0,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.26091718673706055,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 0.26091718673706055,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "sim_31676379c428",
+      "testbench_id": "tb_det_sub_64bit_s2_0",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.05885124206542969,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05885124206542969,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_50f6ab129f74",
+      "testbench_id": "tb_det_sub_64bit_s2_1",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.06702494621276855,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06702494621276855,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_6897a4969b77",
+      "testbench_id": "tb_det_sub_64bit_s2_2",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.06729698181152344,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06729698181152344,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_dbf3ccfdfbdf",
+      "testbench_id": "tb_det_sub_64bit_s2_3",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.06774401664733887,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06774401664733887,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 0,
+  "mutants": []
+}

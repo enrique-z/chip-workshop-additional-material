@@ -1,0 +1,87 @@
+{
+  "cell": {
+    "design_id": "rtllm::sub_64bit",
+    "seed": 2,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 0,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 2,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.21635842323303223,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 2197,
+    "scalar_cost_used": 6.807358423233032,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_ec5a1ff9d52f",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 2197,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_a27895ccf927",
+      "testbench_id": "tb_028771f55eaf",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.08944511413574219,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.08944511413574219,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_cfcc4d04457b",
+      "testbench_id": "tb_f018d8601147",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.061701059341430664,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.061701059341430664,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_0cd4d8c1041e",
+      "testbench_id": "tb_6f3d917bebd6",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.06521224975585938,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06521224975585938,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    }
+  ],
+  "n_mutants": 0,
+  "mutants": []
+}

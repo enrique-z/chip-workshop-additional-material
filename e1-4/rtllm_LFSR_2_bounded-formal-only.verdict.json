@@ -1,0 +1,116 @@
+{
+  "cell": {
+    "design_id": "rtllm::LFSR",
+    "seed": 2,
+    "system": "bounded-formal-only",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 4,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 4,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.0,
+    "smt_seconds_used": 0.5959863662719727,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 0.5959863662719727,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "miter_9c6e7b5f0778",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_LFSR_constant_flip_0_to_1_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.23206090927124023,
+      "smt_seconds": 0.23206090927124023,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_071ab9ad1789",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_LFSR_signal_invert_rhs_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.12351417541503906,
+      "smt_seconds": 0.12351417541503906,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_aa3b04be56f5",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_LFSR_stuck_at_0_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.11653614044189453,
+      "smt_seconds": 0.11653614044189453,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "miter_a8bce48b8a6a",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": "m_LFSR_stuck_at_1_0",
+      "engine": "sby+z3",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.12387514114379883,
+      "smt_seconds": 0.12387514114379883,
+      "sim_seconds": 0.0,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 4,
+  "mutants": [
+    {
+      "mutation_id": "m_LFSR_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte198",
+      "intended_effect": "flipped constant 0\u21921 at token '4'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "inverted RHS of 'assign feedback = ~(out[3] ^ out[2]);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}

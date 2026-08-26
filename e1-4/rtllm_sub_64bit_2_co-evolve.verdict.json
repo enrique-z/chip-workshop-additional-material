@@ -1,0 +1,143 @@
+{
+  "cell": {
+    "design_id": "rtllm::sub_64bit",
+    "seed": 2,
+    "system": "co-evolve",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 0,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.37081289291381836,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 3884,
+    "scalar_cost_used": 12.022812892913818,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 8,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_3071488bc424",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1921,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_8d9bb83fab36",
+      "testbench_id": "tb_028771f55eaf",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.07138514518737793,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.07138514518737793,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_216bee274cbd",
+      "testbench_id": "tb_f018d8601147",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.05678200721740723,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05678200721740723,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_16862d0b155e",
+      "testbench_id": "tb_6f3d917bebd6",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.05701303482055664,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05701303482055664,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "llm_gen_d6e6334c6d64",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1963,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_666263c7d164",
+      "testbench_id": "tb_2ef77133bb7c",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.07089471817016602,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.07089471817016602,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_cf58656cfab7",
+      "testbench_id": "tb_1196f9594b51",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.056741952896118164,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.056741952896118164,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_d1eda8b8b398",
+      "testbench_id": "tb_70182616e159",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.05799603462219238,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05799603462219238,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    }
+  ],
+  "n_mutants": 0,
+  "mutants": []
+}

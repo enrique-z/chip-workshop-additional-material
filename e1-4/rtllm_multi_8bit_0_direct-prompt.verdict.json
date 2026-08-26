@@ -1,0 +1,263 @@
+{
+  "cell": {
+    "design_id": "rtllm::multi_8bit",
+    "seed": 0,
+    "system": "direct-prompt",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 5,
+    "n_mutants_killed": 3,
+    "n_mutants_survived": 2,
+    "kill_rate": 0.6,
+    "n_false_fail_on_ref": 1,
+    "n_engine_errors": 2,
+    "n_timeouts": 2,
+    "sim_seconds_used": 61.23797535896301,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 1964,
+    "scalar_cost_used": 67.12997535896301,
+    "mutation_kill_per_scalar_cost": 0.04468942501405891
+  },
+  "n_verdicts": 14,
+  "verdicts": [
+    {
+      "verdict_id": "llm_gen_befc428b2359",
+      "testbench_id": null,
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "agy+hosted-model-redacted",
+      "outcome": "proved",
+      "origin": "generator",
+      "wall_seconds": 0.0,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0,
+      "llm_tokens": 1964,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_ee290957f9c6",
+      "testbench_id": "tb_33cb14bb9e34",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "disproved",
+      "origin": "allocator",
+      "wall_seconds": 0.07587623596191406,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.07587623596191406,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_ad68d8feaeb4",
+      "testbench_id": "tb_05f0d0e7c862",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.05903005599975586,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.05903005599975586,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_4c22b8508ea4",
+      "testbench_id": "tb_05f0d0e7c862",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_constant_flip_0_to_1_0",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.06049084663391113,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.06049084663391113,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_e11bdff8f0ca",
+      "testbench_id": "tb_05f0d0e7c862",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_arithmetic_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "timeout",
+      "origin": "allocator",
+      "wall_seconds": 30.047295808792114,
+      "smt_seconds": 0.0,
+      "sim_seconds": 30.047295808792114,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_728304cae0de",
+      "testbench_id": "tb_05f0d0e7c862",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_arithmetic_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.13560700416564941,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.13560700416564941,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_056027f59c2a",
+      "testbench_id": "tb_05f0d0e7c862",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "mutation_survived",
+      "origin": "allocator",
+      "wall_seconds": 0.1400740146636963,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.1400740146636963,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_6e3406e53fcf",
+      "testbench_id": "tb_05f0d0e7c862",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.0768136978149414,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.07681488990783691,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/6e3406e53fcf/compare_op_swap_1.v:17: syntax error\nruns/e1/sim/6e3406e53fcf/compare_op_swap_1.v:17: error: Malformed statement\n"
+    },
+    {
+      "verdict_id": "sim_cd1d63edcdd7",
+      "testbench_id": "tb_95d135e9b210",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "proved",
+      "origin": "allocator",
+      "wall_seconds": 0.12975382804870605,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.12975382804870605,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_d8eb82d4d467",
+      "testbench_id": "tb_95d135e9b210",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_constant_flip_0_to_1_0",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.15209722518920898,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.15209722518920898,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_45bf49c5b73a",
+      "testbench_id": "tb_95d135e9b210",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_arithmetic_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "timeout",
+      "origin": "allocator",
+      "wall_seconds": 30.109716176986694,
+      "smt_seconds": 0.0,
+      "sim_seconds": 30.109716176986694,
+      "llm_tokens": 0,
+      "counterexample_trace": null
+    },
+    {
+      "verdict_id": "sim_054414ec1c9a",
+      "testbench_id": "tb_95d135e9b210",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_arithmetic_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.10094690322875977,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.10094690322875977,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_38f23902e8f4",
+      "testbench_id": "tb_95d135e9b210",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_compare_op_swap_0",
+      "engine": "iverilog",
+      "outcome": "mutation_killed",
+      "origin": "allocator",
+      "wall_seconds": 0.09041213989257812,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.09041213989257812,
+      "llm_tokens": 0,
+      "counterexample_trace": "FAIL\n"
+    },
+    {
+      "verdict_id": "sim_4c9387c49fab",
+      "testbench_id": "tb_95d135e9b210",
+      "property_id": null,
+      "mutation_id": "m_multi_8bit_compare_op_swap_1",
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.059859275817871094,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.0598602294921875,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/4c9387c49fab/compare_op_swap_1.v:17: syntax error\nruns/e1/sim/4c9387c49fab/compare_op_swap_1.v:17: error: Malformed statement\n"
+    }
+  ],
+  "n_mutants": 5,
+  "mutants": [
+    {
+      "mutation_id": "m_multi_8bit_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Arithmetic/Multiplier/multi_8bit/verified_multi_8bit.v:byte170",
+      "intended_effect": "flipped constant 0\u21921 at token '16'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_multi_8bit_arithmetic_op_swap_0",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/RTLLM/Arithmetic/Multiplier/multi_8bit/verified_multi_8bit.v:byte258",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_multi_8bit_arithmetic_op_swap_1",
+      "operator": "arithmetic_op_swap",
+      "site": "corpora/RTLLM/Arithmetic/Multiplier/multi_8bit/verified_multi_8bit.v:byte322",
+      "intended_effect": "swapped + \u2192 - (arithmetic-op mutation)",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_multi_8bit_compare_op_swap_0",
+      "operator": "compare_op_swap",
+      "site": "corpora/RTLLM/Arithmetic/Multiplier/multi_8bit/verified_multi_8bit.v:byte247",
+      "intended_effect": "swapped compare op at token '<'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_multi_8bit_compare_op_swap_1",
+      "operator": "compare_op_swap",
+      "site": "corpora/RTLLM/Arithmetic/Multiplier/multi_8bit/verified_multi_8bit.v:byte338",
+      "intended_effect": "swapped compare op at token '<'",
+      "origin": "allocator"
+    }
+  ]
+}

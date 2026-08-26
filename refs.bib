@@ -1,0 +1,558 @@
+% ============================================================
+% O02 VerifyNext — Pass 0 refs.bib
+% NeurIPS 2026 AI for Chip Design workshop, poster track.
+%
+% Rule (P6 lesson): BibTeX silently DROPS an entry when a percent comment
+% appears INSIDE the entry braces. All comments (including verified-tags)
+% live ABOVE the entry, never between an entry key and its closing brace.
+% Rule (P6 lesson): NEVER put a literal at-sign character in a percent
+% comment line — BibTeX treats it as an entry-opener even inside percent
+% comments, and the following entry is silently skipped.
+% ============================================================
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2607.17528
+% #014 Deng et al 2026 — RTL-to-GDS benchmark paper. Cited in O02 §1 as
+% adjacent evidence for the "domain skills do not guarantee end-to-end
+% completion" pattern that motivates our generator-anchor drift framing.
+% #014 §5.1 documents this pattern in agentic EDA, adjacent to our
+% verification-generator context.
+@article{deng2026rtl2gds,
+  author  = {Deng, Jinyuan and Chen, Zhengrui and Wei, Xufeng and Xing, Tianyu and Wen, Chenyi and Sun, Qi and Zhuo, Cheng},
+  title   = {{Can AI Agents Really Complete RTL-to-GDS? Lessons from Benchmarking Tool-Interactive EDA Workflows}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2607.17528},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2607.17528}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2309.07544
+% Liu et al 2023 — VerilogEval benchmark for LLM RTL generation.
+% Primary corpus candidate for E1 (single-family sanity).
+@article{liu2023verilogeval,
+  author  = {Liu, Mingjie and Pinckney, Nathaniel and Khailany, Brucek and Ren, Haoxing},
+  title   = {{VerilogEval: Evaluating Large Language Models for Verilog Code Generation}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2309.07544},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2309.07544}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2308.05345
+% Lu et al 2024 — RTLLM open-source benchmark for RTL generation with LLMs.
+% Cross-family transfer corpus for E2.
+@article{lu2024rtllm,
+  author  = {Lu, Yao and Liu, Shang and Zhang, Qijun and Xie, Zhiyao},
+  title   = {{RTLLM: An Open-Source Benchmark for Design RTL Generation with Large Language Model}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2308.05345},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2308.05345}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2506.14074
+% Pinckney et al 2025 — Comprehensive Verilog benchmark (RealBench). Real IP designs.
+% E3 hidden-oracle audit corpus candidate. REMOVED FROM BIB 2026-08-16 (Pass 5
+% shipping cleanup) because the current main.tex does not cite it. If E3
+% rescope brings RealBench into the corpus at camera-ready, restore this
+% entry from git history at commit 591b6d6 or earlier. Do NOT re-add without
+% a matching \citep in main.tex — build.sh gate 5 does not fail on orphans,
+% but uncited entries are removed to keep the bibliography auditable.
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2407.03891
+% Qiu et al 2024 — AutoBench automatic testbench generation via LLMs.
+% Adjacent related work; positions our co-evolution against single-shot
+% testbench generation.
+@article{qiu2024autobench,
+  author  = {Qiu, Ruidi and Zhang, Grace Li and Drechsler, Rolf and Schlichtmann, Ulf and Li, Bing},
+  title   = {{AutoBench: Automatic Testbench Generation and Evaluation Using LLMs for HDL Design}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2407.03891},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2407.03891}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2308.10204
+% #019 He et al 2023 — ChatEDA foundational LLM-EDA agent paper.
+@article{he2023chateda,
+  author  = {He, Zhuolun and Wu, Haoyuan and Zhang, Xinyun and Yao, Xufeng and Zheng, Su and Zheng, Haisheng and Yu, Bei},
+  title   = {{ChatEDA: A Large Language Model Powered Autonomous Agent for EDA}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2308.10204},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2308.10204}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2412.07822
+% #091 Zhao et al 2024 — MAGE multi-agent RTL generator.
+@article{zhao2024mage,
+  author  = {Zhao, Yujie and Zhang, Hejia and Huang, Hanxian and Yu, Zhongming and Zhao, Jishen},
+  title   = {{MAGE: A Multi-Agent Engine for Automated RTL Code Generation}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2412.07822},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2412.07822}
+}
+
+% verified: 2026-08-16 via https://yosyshq.net/yosys/
+% Yosys open synthesis suite. Native ARM64 via OSS CAD Suite; foundation
+% of our verification pipeline (formal front-end, RTL parser, mutation
+% analysis via AIG tools).
+@misc{wolf2015yosys,
+  author       = {Wolf, Clifford},
+  title        = {{Yosys Open SYnthesis Suite}},
+  howpublished = {\url{https://yosyshq.net/yosys/}},
+  year         = {2015},
+  note         = {Version 0.68 used in this work; native ARM64 build via OSS CAD Suite 2026-08-16}
+}
+
+% verified: 2026-08-16 via https://github.com/YosysHQ/sby
+% SymbiYosys formal verification driver. Orchestrates SMT-based bounded
+% model checking + k-induction across engines (z3, cvc5, boolector,
+% bitwuzla, yices). Central to our allocator's bounded-proof channel.
+@misc{wolf2016sbyformal,
+  author       = {Wolf, Clifford and YosysHQ contributors},
+  title        = {{SymbiYosys (sby): Formal Verification Driver for Yosys}},
+  howpublished = {\url{https://github.com/YosysHQ/sby}},
+  year         = {2016},
+  note         = {Native ARM64 via OSS CAD Suite 2026-08-16 release}
+}
+
+% verified: 2026-08-16 (textbook, foundational)
+% Clarke Model Checking foundational text. Cite as formal-verification
+% ground truth for A1 (formal-methods legalist) archetype preempt.
+@book{clarke1999modelchecking,
+  author    = {Clarke, Edmund M. and Grumberg, Orna and Peled, Doron A.},
+  title     = {{Model Checking}},
+  publisher = {MIT Press},
+  year      = {1999},
+  isbn      = {9780262032704}
+}
+
+% verified: 2026-08-16 via DOI 10.1016/S0065-2458(03)58003-2
+% Biere et al Bounded Model Checking foundational chapter. BMC is the
+% core primitive our allocator dispatches to (via yosys-smtbmc + sby).
+@incollection{biere2003bmc,
+  author    = {Biere, Armin and Cimatti, Alessandro and Clarke, Edmund M. and Strichman, Ofer and Zhu, Yunshan},
+  title     = {{Bounded Model Checking}},
+  booktitle = {Advances in Computers},
+  volume    = {58},
+  pages     = {117--148},
+  publisher = {Academic Press},
+  year      = {2003},
+  doi       = {10.1016/S0065-2458(03)58003-2}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2411.10053
+% #123 Goldie, Mirhoseini, Dean 2024 — "That Chip Has Sailed" AlphaChip defense.
+% KR-4 factional-pair mandate carried forward from O01: cite BOTH #123 AND
+% #088 in orthogonal-positioning sentence. Our contribution is orthogonal
+% to the planner class and applies to any generator/verifier pair.
+@article{goldie2024thatchip,
+  author  = {Goldie, Anna and Mirhoseini, Azalia and Dean, Jeff},
+  title   = {{That Chip Has Sailed: A Critique of Unfounded Skepticism Around AI for Chip Design}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2411.10053},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2411.10053}
+}
+
+% verified: 2026-08-16 via https://arxiv.org/abs/2306.09633
+% #088 Markov 2023 — "The False Dawn" solo-authored critique.
+@article{markov2023falsedawn,
+  author  = {Markov, Igor L.},
+  title   = {{The False Dawn: Reevaluating Google's Reinforcement Learning for Chip Macro Placement}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2306.09633},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2306.09633}
+}
+
+% Workshop Top50 O02 dossier must-cite (2026-08-22): the workshop's own
+% opportunity #02 "Formal-guided testbench agent" dossier cites these 5
+% papers as the reference set; our paper executes O02's minimum experimental
+% contract (5 of the 7 named baselines: direct-prompt, coverage-guided,
+% bounded-formal-only, deterministic-allocator, co-evolve) with matched
+% scalar cost and pre-registered paired-bootstrap kill rule.
+
+% verified: 2026-08-22 via https://arxiv.org/abs/2411.08510 (Top100 corpus #044)
+% Qiu et al 2024 — CorrectBench. Testbench generation with functional
+% self-correction. Cited as prior single-track testbench-generation work.
+@article{qiu2024correctbench,
+  author  = {Qiu, Ruidi and Zhang, Grace Li and Drechsler, Rolf and Schlichtmann, Ulf and Li, Bing},
+  title   = {{CorrectBench: Automatic Testbench Generation with Functional Self-Correction using LLMs for HDL Design}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2411.08510},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2411.08510}
+}
+
+% verified: 2026-08-22 via https://arxiv.org/abs/2606.12983 (Top100 corpus #049)
+% Huang et al 2026 — Structured Testbench Generation for LLM-Driven HDL
+% Design. Cited as prior structured-generation work for testbenches.
+@article{huang2026stg,
+  author  = {Huang, En-Ming and Kao, Yu-Hung and Deng, Ren-Hao and Hsin, Wei-Po and Hsieh, Yao-Ting and Liang, Cheng and Tsou, Hsiang-Yu and Chen, Mu-Chi and Hung, Yu-Kai and Ho, Shao-Chun and Huang, Po-Hsuang and Hung, Shih-Hao and Kung, H. T.},
+  title   = {{Structured Testbench Generation for LLM-Driven HDL Design and Verification-Oriented Data Curation}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2606.12983},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2606.12983}
+}
+
+% verified: 2026-08-22 via https://arxiv.org/abs/2402.00386 (Top100 corpus #045)
+% Fang et al 2024 — AssertLLM. Assertion generation from design
+% specifications. Cited as prior assertion-generation prior art.
+@article{fang2024assertllm,
+  author  = {Fang, Wenji and Li, Mengming and Li, Min and Yan, Zhiyuan and Liu, Shang and Zhang, Hongce and Xie, Zhiyao},
+  title   = {{AssertLLM: Generating and Evaluating Hardware Verification Assertions from Design Specifications via Multi-LLMs}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2402.00386},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2402.00386}
+}
+
+% verified: 2026-08-22 via https://arxiv.org/abs/2505.20302 (Top100 corpus #039)
+% Yubeaton et al 2025 — VeriThoughts. Reasoning + formal verification for
+% automated Verilog. Cited as adjacent reasoning-oriented verification work.
+@article{yubeaton2025verithoughts,
+  author  = {Yubeaton, Patrick and Nakkab, Andre and Xiao, Weihua and Collini, Luca and Karri, Ramesh and Hegde, Chinmay and Garg, Siddharth},
+  title   = {{VeriThoughts: Enabling Automated Verilog Code Generation using Reasoning and Formal Verification}},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2505.20302},
+  year    = {2025},
+  doi     = {10.52202/085713-0288},
+  url     = {https://arxiv.org/abs/2505.20302}
+}
+
+% verified: 2026-08-22 via https://arxiv.org/abs/2507.04276 (Top100 corpus #017)
+% Wan et al 2026 — FIXME. End-to-end LLM-aided design verification
+% benchmark (AAAI 2026). Cited as the primary methodological reference
+% for cost-normalised end-to-end LLM verification evaluation.
+@article{wan2026fixme,
+  author  = {Wan, Gwok-Waa and Wong, SamZaak and Su, Shengchu and Niu, Chenxu and Wang, Ning and Wan, Xinlai and Chen, Qixiang and Xing, Mengnv and Zhang, Jingyi and Ye, Jianmin and Wang, Yubo and Song, Rongchang and Ni, Tao and Xu, Qiang and Guan, Nan and Jiang, Zhe and Wang, Xi and Chen, Yong and Yang, Jun},
+  title   = {{FIXME: Towards End-to-End Benchmarking of LLM-Aided Design Verification}},
+  journal = {Proc. AAAI Conference on Artificial Intelligence},
+  volume  = {40},
+  number  = {2},
+  year    = {2026},
+  doi     = {10.1609/aaai.v40i2.37079},
+  url     = {https://arxiv.org/abs/2507.04276}
+}
+
+
+% --- v2 additions: copied VERBATIM from curated AI-for-Chip-Design pool
+% ([path-redacted] papers neurips/AI for Chip Design -- FOR DISTRIBUTION/combined_deduplicated_references.bib)
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2308.00708
+@misc{cw083,
+  title = {VeriGen: A Large Language Model for Verilog Code Generation},
+  author = {Shailja Thakur and Baleegh Ahmad and Hammond Pearce and Benjamin Tan and Brendan Dolan-Gavitt and Ramesh Karri and Siddharth Garg},
+  year = {2024},
+  howpublished = {ACM Transactions on Design Automation of Electronic Systems},
+  doi = {10.1145/3643681},
+  eprint = {2308.00708},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3643681},
+  note = {Combined-corpus rank 74; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2504.15804
+@misc{cw112,
+  title = {Insights from Verification: Training a Verilog Generation LLM with Reinforcement Learning with Testbench Feedback},
+  author = {Wang, Ning and Yao, Bingkun and Zhou, Jie and Hu, Yuchen and Wang, Xi and Guan, Nan and Jiang, Zhe},
+  year = {2025},
+  eprint = {2504.15804},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2504.15804},
+  note = {Combined-corpus rank 20; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2411.11856
+@misc{cw012,
+  title = {Automatically Improving LLM-based Verilog Generation using EDA Tool Feedback},
+  author = {Jason Blocklove and Shailja Thakur and Benjamin Tan and Hammond Pearce and Siddharth Garg and Ramesh Karri},
+  year = {2025},
+  howpublished = {ACM Transactions on Design Automation of Electronic Systems},
+  doi = {10.1145/3723876},
+  eprint = {2411.11856},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3723876},
+  note = {Combined-corpus rank 87; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2408.11053
+@misc{cw068,
+  title = {Revisiting VerilogEval: A Year of Improvements in Large-Language Models for Hardware Code Generation},
+  author = {Nathaniel Pinckney and Christopher Batten and Mingjie Liu and Haoxing Ren and Brucek Khailany},
+  year = {2025},
+  howpublished = {ACM Transactions on Design Automation of Electronic Systems},
+  doi = {10.1145/3718088},
+  eprint = {2408.11053},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3718088},
+  note = {Combined-corpus rank 43; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2310.04535
+@misc{cw044,
+  title = {LLM4DV: Using Large Language Models for Hardware Test Stimuli Generation},
+  author = {Zixi Zhang and Balint Szekely and Pedro Gimenes and Greg Chadwick and Hugo McNally and Jianyi Cheng and Robert Mullins and Yiren Zhao},
+  year = {2025},
+  howpublished = {2025 IEEE 33rd Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM)},
+  doi = {10.1109/fccm62733.2025.00048},
+  eprint = {2310.04535},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1109/fccm62733.2025.00048},
+  note = {Combined-corpus rank 113; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2507.16200
+@misc{cw117,
+  title = {RealBench: Benchmarking Verilog Generation Models with Real-World IP Designs},
+  author = {Jin, Pengwei and Huang, Di and Li, Chongxiao and Cheng, Shuyao and Zhao, Yang and Zheng, Xinyao and Zhu, Jiaguo and Xing, Shuyi and Dou, Bohan and Zhang, Rui and Du, Zidong and Guo, Qi and Hu, Xing},
+  year = {2025},
+  eprint = {2507.16200},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2507.16200},
+  note = {Combined-corpus rank 24; audited 2026-08-09}
+}
+
+
+% --- v3 additions (R5 refs expansion): 18 entries VERBATIM from the curated pool ---
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2312.08617
+@misc{cw072,
+  title = {RTLCoder: Fully Open-Source and Efficient LLM-Assisted RTL Code Generation Technique},
+  author = {Shang Liu and Wenji Fang and Yao Lu and Jing Wang and Qijun Zhang and Hongce Zhang and Zhiyao Xie},
+  year = {2025},
+  howpublished = {IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  doi = {10.1109/tcad.2024.3483089},
+  eprint = {2312.08617},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1109/tcad.2024.3483089},
+  note = {Combined-corpus rank 70; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://doi.org/10.1038/s41586-021-03544-w
+@misc{cw004,
+  title = {A graph placement methodology for fast chip design},
+  author = {Anna Goldie and Azalia Mirhoseini and Mustafa Yazgan and Joe Wenjie Jiang and Ebrahim Songhori and Shen Wang and Young-Joon Lee and Eric Johnson and Omkar Pathak and Azade Nova and Jiwoo Pak and Andy Tong and Kavya Srinivasa and William Hang and Emre Tuncer and Quoc V. Le and James Laudon and Richard Ho and Roger Carpenter and Jeff Dean},
+  year = {2024},
+  howpublished = {Nature},
+  doi = {10.1038/s41586-021-03544-w},
+  url = {https://doi.org/10.1038/s41586-021-03544-w},
+  note = {Combined-corpus rank 65; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://doi.org/10.1145/1146909.1147048
+@misc{cw022,
+  title = {DAG-aware AIG rewriting a fresh look at combinational logic synthesis},
+  author = {Alan Mishchenko and Satrajit Chatterjee and Robert Brayton},
+  year = {2006},
+  howpublished = {Proceedings of the 43rd annual conference on Design automation  - DAC '06},
+  doi = {10.1145/1146909.1147048},
+  url = {https://doi.org/10.1145/1146909.1147048},
+  note = {Combined-corpus rank 77; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2506.08332
+@misc{cw056,
+  title = {ORFS-agent: Tool-Using Agents for Chip Design Optimization},
+  author = {Amur Ghose and Andrew B. Kahng and Sayak Kundu and Zhiang Wang},
+  year = {2025},
+  howpublished = {2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD)},
+  doi = {10.1109/mlcad65511.2025.11189204},
+  eprint = {2506.08332},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1109/mlcad65511.2025.11189204},
+  note = {Combined-corpus rank 38; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2111.06178
+@misc{cw014,
+  title = {BOiLS: Bayesian Optimisation for Logic Synthesis},
+  author = {Antoine Grosnit and Cedric Malherbe and Rasul Tutunov and Xingchen Wan and Jun Wang and Haitham Bou Ammar},
+  year = {2022},
+  howpublished = {2022 Design, Automation \& Test in Europe Conference \& Exhibition (DATE)},
+  doi = {10.23919/date54114.2022.9774632},
+  eprint = {2111.06178},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.23919/date54114.2022.9774632},
+  note = {Combined-corpus rank 3; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2311.00176
+@misc{cw096,
+  title = {ChipNeMo: Domain-Adapted LLMs for Chip Design},
+  author = {Liu, Mingjie and Ene, Teodor-Dumitru and Kirby, Robert and Cheng, Chris and Pinckney, Nathaniel and Liang, Rongjian and Alben, Jonah and Anand, Himyanshu and Banerjee, Sanmitra and Bayraktaroglu, Ismet and Bhaskaran, Bonita and Catanzaro, Bryan and Chaudhuri, Arjun and Clay, Sharon and Dally, Bill and Dang, Laura and Deshpande, Parikshit and Dhodhi, Siddhanth and Halepete, Sameer and Hill, Eric and Hu, Jiashang and Jain, Sumit and Jindal, Ankit and Khailany, Brucek and Kokai, George and Kunal, Kishor and Li, Xiaowei and Lind, Charley and Liu, Hao and Oberman, Stuart and Omar, Sujeet and Pasandi, Ghasem and Pratty, Sreedhar and Raiman, Jonathan and Sarkar, Ambar and Shao, Zhengjiang and Sun, Hanfei and Suthar, Pratik P and Tej, Varun and Turner, Walker and Xu, Kaizhe and Ren, Haoxing},
+  year = {2023},
+  eprint = {2311.00176},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2311.00176},
+  note = {Combined-corpus rank 120; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2409.12993
+@misc{cw106,
+  title = {CraftRTL: High-quality Synthetic Data Generation for Verilog Code Models with Correct-by-Construction Non-Textual Representations and Targeted Code Repair},
+  author = {Liu, Mingjie and Tsai, Yun-Da and Zhou, Wenfei and Ren, Haoxing},
+  year = {2024},
+  eprint = {2409.12993},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2409.12993},
+  note = {Combined-corpus rank 107; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2402.03375
+@misc{cw093,
+  title = {BetterV: Controlled Verilog Generation with Discriminative Guidance},
+  author = {Pei, Zehua and Zhen, Hui-Ling and Yuan, Mingxuan and Huang, Yu and Yu, Bei},
+  year = {2024},
+  eprint = {2402.03375},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2402.03375},
+  note = {Combined-corpus rank 106; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2505.24183
+@misc{cw064,
+  title = {QiMeng-CodeV-R1: Reasoning-Enhanced Verilog Generation},
+  author = {Zhu, Yaoyu and Huang, Di and Lyu, Hanqi and Zhang, Xiaoyun and Li, Chongxiao and Shi, Wenxuan and Wu, Yutong and Mu, Jianan and Wang, Jinghua and Zhao, Yang and Jin, Pengwei and Cheng, Shuyao and Liang, Shengwen and Zhang, Xishan and Zhang, Rui and Du, Zidong and Guo, Qi and Hu, Xing and Chen, Yunji},
+  year = {2025},
+  doi = {10.52202/085713-5160},
+  eprint = {2505.24183},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.52202/085713-5160},
+  note = {Combined-corpus rank 101; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2407.18276
+@misc{cw070,
+  title = {Rome was Not Built in a Single Step: Hierarchical Prompting for LLM-based Chip Design},
+  author = {Andre Nakkab and Sai Qian Zhang and Ramesh Karri and Siddharth Garg},
+  year = {2024},
+  howpublished = {Proceedings of the 2024 ACM/IEEE International Symposium on Machine Learning for CAD},
+  doi = {10.1145/3670474.3685964},
+  eprint = {2407.18276},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3670474.3685964},
+  note = {Combined-corpus rank 115; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2311.16543
+@misc{cw073,
+  title = {RTLFixer: Automatically Fixing RTL Syntax Errors with Large Language Model},
+  author = {Yunda Tsai and Mingjie Liu and Haoxing Ren},
+  year = {2024},
+  howpublished = {Proceedings of the 61st ACM/IEEE Design Automation Conference},
+  doi = {10.1145/3649329.3657353},
+  eprint = {2311.16543},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3649329.3657353},
+  note = {Combined-corpus rank 33; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2405.06840
+@misc{cw050,
+  title = {MEIC: Re-thinking RTL Debug Automation using LLMs},
+  author = {Ke Xu and Jialin Sun and Yuchen Hu and Xinwei Fang and Weiwei Shan and Xi Wang and Zhe Jiang},
+  year = {2024},
+  howpublished = {Proceedings of the 43rd IEEE/ACM International Conference on Computer-Aided Design},
+  doi = {10.1145/3676536.3676801},
+  eprint = {2405.06840},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3676536.3676801},
+  note = {Combined-corpus rank 84; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2606.23759
+@misc{cw124,
+  title = {VeriPilot: An LLM-Powered Verilog Debugging Framework},
+  author = {Wang, Yihan and Liu, Cheng and Zhang, Jiazheng and Zhang, Lei and Cheng, Long and Li, Xiaowei and Li, Huawei},
+  year = {2026},
+  eprint = {2606.23759},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2606.23759},
+  note = {Combined-corpus rank 85; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2503.15112
+@misc{cw054,
+  title = {OpenLLM-RTL: Open Dataset and Benchmark for LLM-Aided Design RTL Generation},
+  author = {Shang Liu and Yao Lu and Wenji Fang and Mengming Li and Zhiyao Xie},
+  year = {2024},
+  howpublished = {Proceedings of the 43rd IEEE/ACM International Conference on Computer-Aided Design},
+  doi = {10.1145/3676536.3697118},
+  eprint = {2503.15112},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3676536.3697118},
+  note = {Combined-corpus rank 52; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2506.14074
+@misc{cw104,
+  title = {Comprehensive Verilog Design Problems: A Next-Generation Benchmark Dataset for Evaluating Large Language Models and Agents on RTL Design and Verification},
+  author = {Pinckney, Nathaniel and Deng, Chenhui and Ho, Chia-Tung and Tsai, Yun-Da and Liu, Mingjie and Zhou, Wenfei and Khailany, Brucek and Ren, Haoxing},
+  year = {2025},
+  eprint = {2506.14074},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2506.14074},
+  note = {Combined-corpus rank 27; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2607.13079
+@misc{cw097,
+  title = {ChipVerilog: A Large-Scale OpenCores-Derived Benchmark for LLM-Based Verilog RTL Generation},
+  author = {Tan, Yan and Du, Jiping and Meng, Xiangchen and Lyu, Yangdi},
+  year = {2026},
+  eprint = {2607.13079},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2607.13079},
+  note = {Combined-corpus rank 25; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2606.08976
+@misc{cw120,
+  title = {RTL-BenchLS: A Large-Scale Benchmark for RTL Reasoning and Generation with Large Language Models},
+  author = {Wang, Jing and Liu, Shang and Fang, Wenji and Wu, Yuchao and Zhu, Yugao and Xie, Zhiyao},
+  year = {2026},
+  eprint = {2606.08976},
+  archiveprefix = {arXiv},
+  url = {https://arxiv.org/abs/2606.08976},
+  note = {Combined-corpus rank 23; audited 2026-08-09}
+}
+
+% verified: 2026-08-24 copied verbatim from curated AI4ChipDesign pool
+% (combined_deduplicated_references.bib, corpus audited 2026-08-09) via https://arxiv.org/abs/2603.11287
+@misc{cw078,
+  title = {Synthesis-in-the-Loop Evaluation of LLMs for RTL Generation: Quality, Reliability, and Failure Modes},
+  author = {Fu, Weimin and Wang, Zeng and Shao, Minghao and Karri, Ramesh and Shafique, Muhammad and Knechtel, Johann and Sinanoglu, Ozgur and Guo, Xiaolong},
+  year = {2026},
+  doi = {10.1145/3787109.3815245},
+  eprint = {2603.11287},
+  archiveprefix = {arXiv},
+  url = {https://doi.org/10.1145/3787109.3815245},
+  note = {Combined-corpus rank 31; audited 2026-08-09}
+}

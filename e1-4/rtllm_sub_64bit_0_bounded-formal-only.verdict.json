@@ -1,0 +1,30 @@
+{
+  "cell": {
+    "design_id": "rtllm::sub_64bit",
+    "seed": 0,
+    "system": "bounded-formal-only",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 0,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 0,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0,
+    "smt_seconds_used": 0,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 0.0,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 0,
+  "verdicts": [],
+  "n_mutants": 0,
+  "mutants": []
+}

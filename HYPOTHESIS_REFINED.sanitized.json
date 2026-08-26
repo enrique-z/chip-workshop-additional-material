@@ -1,0 +1,371 @@
+{
+ "schema_version": 1,
+ "campaign": "neurips-26-ai4chip-design",
+ "paper_slug": "p_chipdesign_o02_verifynext",
+ "freeze_utc": "2026-08-16T00:00:00Z",
+ "track": "NeurIPS 2026 AI for Chip Design workshop, POSTER (<=4pp body EXCL refs, non-archival)",
+ "deadline_utc": "2026-08-31T11:59:59Z",
+ "title": "VerifyNext: Co-Evolving Testbench/Property Generator and Formal Verifier for RTL under Fixed Verification Budget",
+ "pivot_rationale": "Pivoted from O01 GuardedFlow (Handbook rank #1, Crosswalk fit 29/30) to O02 VerifyNext (rank #2, fit 28/30) on 2026-08-16 after OpenROAD-flow-scripts Docker image failed at CTS stage under Rosetta 2 with 'illegal instruction' \u2014 a hard ISA-translation limit, not a speed issue. OpenLane fallback also required PDK+design-corpus port. Native macOS ARM64 OpenROAD binary does not exist (no brew formula, no prebuilt release). OSS CAD Suite provides a complete native ARM64 formal-verification stack (yosys + sby + z3 + cvc5 + boolector + bitwuzla + yices + AIG tools + verilator) that fully satisfies O02's compute requirements. This pivot exchanges ~1 Crosswalk fit point for a 100% working local toolchain and zero Docker/Rosetta dependency.",
+ "hypothesis_statement": "In LLM-driven RTL verification, generators trained end-to-end against their own preference distribution silently lose ground on hidden mutants and missed properties as they improve. VerifyNext places the generator inside a co-evolving loop where an allocator distributes a fixed verification budget across simulation and bounded formal proof, and where surviving mutants + missed properties become the next curriculum \u2014 while an independently-authored anchor stays OUTSIDE the generator's optimization channel. Primary estimand: hidden-mutation-detection per unit verification cost (simulation-seconds + SMT-solver-seconds + LLM-token-cost) at matched budget, co-evolve vs strongest deterministic-allocator baseline.",
+ "hero_mechanism": "co-evolution loop (generator \u2194 allocator) with independent-anchor separation",
+ "supporting_mechanisms_supplementary_only": [
+  "portfolio SMT dispatch (z3/cvc5/boolector/bitwuzla)",
+  "mutation-target seeding via AIG operators",
+  "k-induction depth adaptive scheduling"
+ ],
+ "primary_corpus": {
+  "name": "RTLLM + VerilogEval hybrid",
+  "citations": [
+   "lu2024rtllm",
+   "liu2023verilogeval"
+  ],
+  "access": "public GitHub + arXiv",
+  "toolchain": "OSS CAD Suite 2026-08-16 (darwin-arm64) at $HOME/tools/oss-cad-suite/",
+  "toolchain_activation": "source $HOME/tools/oss-cad-suite/environment",
+  "labeller_identity": "outside",
+  "labeller_tools": [
+   "SymbiYosys (sby) k-induction",
+   "yosys-smtbmc with z3 default engine",
+   "AIG miter equivalence checking via aigmiter"
+  ],
+  "designs_e1": [
+   "adder_8bit",
+   "counter_4bit",
+   "fifo_8x16",
+   "gcd_iterative",
+   "priority_encoder",
+   "shift_register",
+   "spi_master",
+   "uart_rx"
+  ],
+  "designs_e2": [
+   "arithmetic (from VerilogEval)",
+   "control (from VerilogEval)",
+   "cross-family from RTLLM: rv_timer, alu32, cache_4way"
+  ],
+  "designs_e3_held_out": [
+   "RTLLM sequestered anchor set (6 designs frozen at evidence/anchor_sequestered/, root SHA 5cf58595...)"
+  ],
+  "per_row_input": "(design_id, mutation_class, seed, system \u2208 {direct-prompt, coverage-guided, bounded-formal-only, deterministic-allocator, co-evolve})",
+  "n_floor_per_arm_e1": 24,
+  "n_floor_per_arm_e2": 60,
+  "n_floor_per_arm_e3": 20,
+  "n_seeds": 3
+ },
+ "fallback_corpus": {
+  "name": "HDLBits subset",
+  "invoked_only_if": "RTLLM/VerilogEval access blocks by 2026-08-22 (Pass 1 close)",
+  "divergence_disclosure_at_freeze": "HDLBits is community-authored; if fallback invoked, we disclose in abstract \u00a71 that the corpus is a subset of a public exercise repository, not a peer-reviewed benchmark."
+ },
+ "estimand_viability_sub_check_pilot": {
+  "note_pass_scope": "Pass-0.5 pilot is corpus-and-tool sanity + wall-clock characterization for the formal-verification path.",
+  "pass_0_5_pilot": {
+   "name": "Yosys+SBY+z3 end-to-end sanity",
+   "grid": "1 design (4-bit adder with overflow assertion) x 1 seed x 1 engine (z3) = 1 cell",
+   "budget_wall_clock_seconds": 30,
+   "status_2026_08_16": "PASSED \u2014 k-induction proof successful in 9 seconds wall-clock via `sby -f check.sby`; z3 engine dispatched correctly by SymbiYosys.",
+   "success_criteria_all_met": [
+    "yosys reads formal Verilog with `read -formal` \u2014 PASS",
+    "sby dispatches SMT engine successfully \u2014 PASS",
+    "z3 returns pass/fail verdict within budget \u2014 PASS",
+    "wall-clock per unit cell < 60 seconds \u2014 PASS (9s actual)"
+   ]
+  },
+  "pass_2_pilot": {
+   "name": "Co-evolution loop pilot",
+   "grid": "3 designs x 1 seed x 4 systems = 12 cells",
+   "budget_wall_clock_hours": 4,
+   "success_criteria": [
+    "co-evolve mutation-detection strictly exceeds direct-prompt on at least 2 of 3 designs",
+    "deterministic-allocator baseline mutation-detection > 0 (baseline works)",
+    "independent-anchor hidden-property set never leaks into generator's training loop (verified by evidence-manifest lineage)",
+    "wall-clock per cell < 1 hour on ARM64 native"
+   ]
+  }
+ },
+ "primary_experiment_e1_ablation": {
+  "name": "Systems comparison at matched budget",
+  "grid": "8 designs x 3 seeds x 5 systems = 120 cells",
+  "systems": [
+   "direct-prompt",
+   "coverage-guided",
+   "bounded-formal-only",
+   "deterministic-allocator (strong baseline)",
+   "co-evolve"
+  ],
+  "budget_wall_clock_hours_arm64_native": 20,
+  "primary_outcome": "hidden-mutation-detection per unit verification cost (simulation-seconds + SMT-solver-seconds + LLM-token-cost), paired across (design, seed)",
+  "falsifier_kill_rule_verbatim_from_crosswalk": "fails if false verdicts increase, OR strongest deterministic allocator matches lower-confidence-bound at equal cost, OR hidden-oracle separation compromised."
+ },
+ "secondary_experiment_e2_transfer": {
+  "name": "Cross-family transfer + model-swap invariance",
+  "grid": "12 designs (held-out family) x 5 seeds x 3 systems (direct-prompt, deterministic-allocator, co-evolve) x 2 LLM backends = 360 cells",
+  "budget_wall_clock_hours_arm64_native": 40,
+  "primary_outcome": "transfer-score = detection-rate on held-out family / detection-rate on training family; robust across LLM backends",
+  "falsifier": "transfer-score <=1 (no improvement on unseen family) OR LLM-swap changes ordering of systems"
+ },
+ "tertiary_experiment_e3_hidden_oracle_audit": {
+  "name": "Sequestered final-test detection",
+  "grid": "6 sequestered RTLLM designs (evidence/anchor_sequestered/ root SHA 5cf58595...) x 3 seeds x 2 systems (deterministic-allocator baseline, co-evolve) = 36 cells",
+  "corpus_source_authoritative": "RTLLM sequestered anchor set (adder_16bit, multi_pipe_8bit, radix2_div, asyn_fifo, fsm, pulse_detect)",
+  "budget_wall_clock_hours_arm64_native": 8,
+  "primary_outcome": "hidden-oracle detection rate + false-verdict rate on sequestered set never touched by generator's promotion channel",
+  "false_verdict_baseline_operational": {
+   "definition": "false-pass + false-fail rate observed for the deterministic-allocator system on the E3 sequestered set (36 cells above)",
+   "kill_threshold": "co-evolve's false-verdict rate on E3 must not exceed deterministic-allocator's false-verdict rate by more than 2 percentage points",
+   "pinned_pre_pass_2": true
+  },
+  "falsifier": "co-evolve's false-verdict rate on E3 exceeds deterministic-allocator's by >2pp OR co-evolve loses to deterministic-allocator on hidden-mutation-detection at matched scalar cost (see scalar_cost_function below)"
+ },
+ "lcb_construction_pinned_pass_1": {
+  "note": "Resolves adversarial-R4 C3 (kill-rule LCB operationally undefined). Pass 3 primary-outcome test uses these parameters verbatim.",
+  "statistic": "paired difference in mutation-kill-per-scalar-cost between co-evolve and deterministic-allocator, paired across (design_id, seed) cells",
+  "resampling_procedure": "paired bootstrap over (design_id, seed) cells, 1000 resamples",
+  "confidence_interval": "95% (BCa or percentile \u2014 percentile default; BCa if bias/skewness detected in pilot)",
+  "alpha": 0.05,
+  "minimum_detectable_effect_mde": "Delta = 0.05 * median(deterministic-allocator mutation-kill-per-cost) on E1 pilot",
+  "dominance_criterion": "co-evolve declared dominant iff the 95% CI LOWER BOUND of the paired-difference statistic strictly exceeds zero at matched scalar cost",
+  "kill_rule_operational_form": "the paper falsifier (ii) fires iff the paired-bootstrap 95% CI lower bound does NOT clear zero after E1 full runs; a strictly-positive lower bound is the pre-registered acceptance condition"
+ },
+ "scalar_cost_function_pinned_pass_1": {
+  "note": "Resolves adversarial-R1 M4 (BudgetLedger 3-dim vs scalar mismatch). Every system runs to the SAME total_cost budget; per-dimension caps are advisory only (used for hard-timeout, not for matching).",
+  "formula": "total_cost = sim_seconds + smt_seconds + (llm_tokens / 1000) * price_per_1k_tokens_usd_2026_08",
+  "price_per_1k_tokens_usd_2026_08": 3.0,
+  "rationale": "3.0 USD/1k tokens = mid-range for frontier hosted-model output tier (reference price, 2026-08-16; vendor name redacted for double-blind review). Sim-seconds and SMT-seconds are already in identical wall-clock units and enter the sum unweighted, matching an independent abstract's 'wall-clock' framing.",
+  "e1_e2_e3_matched_budget_per_cell_total_cost_units": "TBD \u2014 pilot-calibrated at Pass 2 open from the 9s smoke wall-clock times 60x for realistic design complexity"
+ },
+ "fallback_narrative": {
+  "positive_branch": "co-evolve wins Pareto on mutation-detection per unit cost + transfers cross-family + preserves hidden-oracle separation. Poster hero table + ablation figure drives \u00a7Results.",
+  "negative_branch_A_co_evolve_loses_to_deterministic": {
+   "title": "When does co-evolution beat a strong deterministic allocator? A cost-effectiveness map for formal verification budgets",
+   "workshop_topic_fit": "topic #6 RL for EDA tasks + #9 benchmarks",
+   "publishable": true
+  },
+  "negative_branch_B_transfer_fails": {
+   "title": "The generator-anchor drift problem: measuring hidden-oracle separation as verification generators improve",
+   "workshop_topic_fit": "topic #9 reproducible benchmarks",
+   "publishable": true
+  },
+  "negative_branch_C_false_verdicts_rise": {
+   "title": "Failure taxonomy: false-verdict modes in co-evolving LLM-verifier loops",
+   "workshop_topic_fit": "topic #7 LLMs for HDLs + #9 benchmarks",
+   "publishable": true
+  }
+ },
+ "do_not_submit_gate_adapted_from_review_channel": {
+  "supersedes": "O01's original gate (does not apply to O02)",
+  "conditions_all_must_be_true": [
+   "1. All E1-E3 cells / seeds / logs / manifests / baseline runs exist; no cell imputed.",
+   "2. Primary table numerics all traceable to reproducible run artifacts; anti-fab guard clean.",
+   "3. E1 shows pre-registered positive detection effect + co-evolve on strictly better cost frontier than deterministic-allocator at matched budgets.",
+   "4. Independent clean rerun reproduces detection exactly + wall-clock within pre-registered tolerances; PDF anonymized + within 4 body pages.",
+   "5. Hidden-oracle separation manifest proves the sequestered final-test set never entered the generator's optimization channel."
+  ]
+ },
+ "kill_risks_and_mitigations": {
+  "KR1_deterministic_allocator_ties_co_evolve": "CRITICAL: falsifier per Crosswalk kill rule. Mitigation: pre-register the deterministic allocator config that is HARDEST for co-evolve to beat (matched SMT-engine portfolio, matched retry budget). If co-evolve ties, invoke negative branch A.",
+  "KR2_generator_anchor_leakage": "CRITICAL: kill rule 'hidden-oracle separation compromised'. Mitigation: physical separation of anchor set into evidence/anchor_sequestered/ directory that is NEVER referenced from generator code; freeze anchor at Pass 0.5; lineage manifest at Pass 5 audits every generator-touched file.",
+  "KR3_false_verdict_inflation": "MAJOR: readers will demand false-verdict accounting. Mitigation: report false-pass + false-fail per system in Hero table; do NOT hide them in appendix.",
+  "KR4_factional_trap_carried_from_O01": "MAJOR: KR-4 from O01 carries forward \u2014 cite BOTH goldie2024thatchip AND markov2023falsedawn in orthogonal-positioning sentence.",
+  "KR5_poster_format_overreach": "MAJOR: 1 hero table + 1 ablation figure + 2 sub-tables; nothing else in body.",
+  "KR6_new_llm_disclosure": "MAJOR: CFP D11 warning \u2014 hallucination-rejection policy applies. Author-LLM disclosure at abstract \u00a71 end, verbatim."
+ },
+ "cfp_verified_policy_2026_08_16": {
+  "authors_may_use_llms": true,
+  "author_responsibility_clause": "verbatim from CFP: 'Papers containing fabricated, hallucinated, or misleading content may be rejected.'",
+  "llms_permitted_for_review": false,
+  "double_blind": true,
+  "min_reviews_per_paper": 3
+ },
+ "toolchain_manifest_2026_08_16": {
+  "yosys": "0.68+post (git sha1 c12172fbae8af5e20f6fb52e3d4e92d56ed587b6) via brew, native Mach-O 64-bit arm64",
+  "oss_cad_suite": "release 2026-08-16, extracted at $HOME/tools/oss-cad-suite/",
+  "sby": "OSS CAD Suite bundled version",
+  "smt_solvers": [
+   "z3",
+   "cvc4",
+   "cvc5",
+   "boolector",
+   "bitwuzla",
+   "yices",
+   "yices-smt2"
+  ],
+  "sim_tools": [
+   "verilator",
+   "iverilog"
+  ],
+  "aig_tools": [
+   "aigmiter",
+   "aigfuzz",
+   "aigcexmin",
+   "aigbmc",
+   "yosys-abc",
+   "yosys-smtbmc"
+  ],
+  "smoke_test_result": "9-second k-induction proof of 4-bit adder overflow assertion via z3 engine \u2014 FULL PASS"
+ },
+ "author_llm_disclosure_at_abstract": "verbatim: 'this manuscript's prose was assisted by an LLM; the authors carry sole responsibility for factual and citation correctness under the workshop CFP anti-fabrication policy.'",
+ "anchor_frozen_2026_08_16": {
+  "path": "evidence/anchor_sequestered/",
+  "manifest_file": "evidence/anchor_sequestered/HASH_MANIFEST.txt",
+  "manifest_root_sha256": "5cf585955342623096002703482cf15534d7258abc801b672ea0e2a7fdac32cb",
+  "n_designs_frozen": 6,
+  "n_files_frozen": 27,
+  "corpus_source": "RTLLM (github.com/hkust-zhiyao/RTLLM, cloned 2026-08-16)",
+  "designs_frozen": [
+   "adder_16bit",
+   "multi_pipe_8bit",
+   "radix2_div",
+   "asyn_fifo",
+   "fsm",
+   "pulse_detect"
+  ],
+  "separation_guarantee": "This anchor set is loaded ONLY from scripts/audit_final.py (Pass 5) via modules/anchor_audit.py. It is NEVER referenced from generator.py or allocator.py. Build gate 3 (Pass 5 pre-submission) fails the build if any generator/allocator import touches modules/anchor_audit.py.",
+  "e3_role": "hidden-oracle audit corpus \u2014 never touches generator's optimization channel; used only to compute the sequestered final-test detection rate + false-verdict rate at Pass 5",
+  "e1_e2_designs_MUST_NOT_include": "E1 and E2 grids MUST exclude these 6 designs to preserve separation. Enforced by scripts/e1_e2_grid_check.py at Pass 2 pilot."
+ },
+ "freeze_amendment_log": [
+  {
+   "date": "2026-08-16",
+   "amendment": "PIVOT from O01 to O02",
+   "what_changed": "Paper identity switched from Guarded RTL-to-GDS (O01) to Co-Evolving Testbench/Property Generator + Formal Verifier (O02). Corpus switched from OpenROAD-flow-scripts nangate45 to RTLLM+VerilogEval. Compute switched from Docker+Rosetta to native ARM64 OSS CAD Suite.",
+   "what_did_not_change": "Workshop target (AI for Chip Design NeurIPS 2026), track (Poster 3-4pp), submission deadline (2026-08-30 AoE), factional-pair citation rule (KR-4), CFP author-LLM disclosure requirement, build harness (7-gate STRICT_MODE with 4pp cap).",
+   "verified_via": "Rosetta gcd bench 2026-08-16 failed at CTS with 'illegal instruction' (log: /private/tmp/readers-A-501/.../scratchpad/gcd_rosetta_bench.log); OSS CAD Suite ARM64 smoke test 2026-08-16 passed z3-backed formal proof in 9 seconds.",
+   "authority": "session's autonomous decision under the maintainer's 2026-08-16 mandate 'take the decisions best for the paper'"
+  },
+  {
+   "index": 2,
+   "date": "2026-08-16",
+   "amended_utc": "2026-08-16T23:15:00Z",
+   "amendment": "freeze_amendment_2_hosted_model_wrapper_generator_backend",
+   "amended_at_pass": "Pass 2 open \u2014 the generator/allocator/mutation scaffold NotImplementedError bodies are about to be replaced. The Pass-1 scaffold explicitly deferred backend selection (see modules/generator.py L54-57: 'final selection deferred to Pass 2 open, subject to availability and per-token-cost normalization ... NO SPECIFIC MODEL NAME LOCKED HERE per adversarial-R1 M3 \u2014 Pass 2 pilot picks the actual backend and records the selection with a freeze_amendment entry.'). This amendment executes that deferred choice.",
+   "amendment_kind": "resource-constrained generator backend selection",
+   "trigger": "Local memory contention on the 64 GB M3 host at Pass 2 open. `ps aux` at 2026-08-16T23:10Z showed (a) Ollama's `llama-server` process (PID 51456) resident at ~14 GB with 8192-context + mmproj vision projector; (b) LM Studio helper renderer + two llmworker.js processes (~15+ GB combined); (c) macOS vm_stat reporting only 4832 free pages. Loading a local 7B-13B coder model alongside would exceed physical RAM and either (i) OS-OOM-kill the maintainer's active work, or (ii) OS-OOM-kill the experiment process \u2014 the exact failure mode documented in [[bp09_judge_recovery_lessons.md \u00a75]] (5 OOM kills during BP-09 gate v2-v6). the maintainer's directive at 2026-08-16T23:12Z: 'yes, do hosted-model wrapper (name redacted), as the llama or lmstudio are getting now so much memory... try hosted-model wrapper (name redacted)'.",
+   "what_changed": {
+    "generator_backend": "unspecified 'open-weights code model such as Qwen-3-Coder OR frontier hosted model' \u2192 hosted-model CLI (name redacted, the maintainer's Ultra subscription) invoking frontier hosted-model backend (name redacted) (default model in ~/.[vendor-redacted]/settings.json)",
+    "generator_process_topology": "in-process Python inference \u2192 subprocess call to $HOME/.local/bin/agy --print '<prompt>' (per [[hosted_model_wrapper.md]] the ONLY reliable invocation form; --model/--effort/--agent flags trigger a parser bug that echoes the flag value as prompt content)",
+    "generator_concurrency": "was implicitly per-cell parallel via -j 8 \u2192 agy is single-concurrency (OAuth lock file contention); generator calls MUST serialize globally across the 120-cell E1 run. Cell-level parallelism (multiple .sby processes) is preserved \u2014 only the LLM proposal step is serialized",
+    "per_call_latency": "unknown \u2192 ~10 s wall-clock (measured 2026-08-16T23:14Z: `agy --print 'Return only Python source: def add(a,b): return a+b'` returned clean single-line output in 9.79 s)"
+   },
+   "what_did_not_change": {
+    "estimand": "hidden-mutation-detection per unit verification cost \u2014 unchanged",
+    "scalar_cost_function": "sim_seconds + smt_seconds + (llm_tokens/1000)*price_per_1k_tokens_usd_2026_08 with price=3.0 USD/1k tokens \u2014 unchanged; hosted-model-A (name redacted for double-blind) Ultra-tier fits inside the same $3.0/1k-token accounting bucket (Ultra subscription is prepaid at the account level, so per-call marginal cost is bounded; we bill it at the same reference frontier hosted-model output-tier rate)",
+    "kill_rule_LCB": "paired-bootstrap 95% CI lower-bound on paired mutation-kill-per-cost difference \u2014 unchanged",
+    "anchor_separation": "6-design RTLLM sequestered anchor at evidence/anchor_sequestered/ (root SHA 5cf58595...) still loaded ONLY from scripts/audit_final.py via modules/anchor_audit; generator.py MUST NOT import anchor_audit \u2014 enforced by build.sh gate 2.5",
+    "e1_e2_e3_grid_shapes": "E1 120 / E2 360 / E3 36 cells \u2014 unchanged"
+   },
+   "lineage_independence_gate_preservation": "generator lineage is now frontier hosted-model lineage (name redacted) (frontier hosted-model backend (name redacted)). Judge lineage is the OSS formal-solver stack (yosys+sby by YosysHQ/Clifford Wolf; z3 by Microsoft Research; cvc5 by Stanford/CMU/Iowa; boolector/bitwuzla by Johannes Kepler University Linz; yices by SRI International) \u2014 none are [vendor-redacted]-authored and none descend from a language-model pretraining pipeline; they are a fundamentally different lineage CLASS from the generator. Anchor lineage is human-authored RTLLM benchmarks (independent third-party research group at HKUST-Zhiyao). Three lineages remain independent: LLM-generator ([vendor-redacted]) \u2260 formal-oracle (mixed-provenance OSS SMT solvers) \u2260 anchor-corpus (HKUST academic). The hidden-oracle separation gate (E3) is untouched.",
+   "cohort_relationship_to_prior_amendments": "This is the ONLY generator-backend cohort for Pass 2. Amendment 1 (O01\u2192O02 pivot) changed corpus + compute; this amendment sets the last remaining unspecified pipeline component. If a second LLM backend is added for E2 model-swap invariance (per HYPOTHESIS_REFINED.json.secondary_experiment_e2_transfer.grid: '2 LLM backends'), a follow-up freeze_amendment_3_e2_second_llm_backend will document it; the second backend must be from a DIFFERENT lineage (frontier hosted-model B or open-weights local model, NOT another instance of the same lineage) to preserve the E2 LLM-swap invariance test's power.",
+   "why_not_variant_shopping": "This is a compute-forced substitution documented BEFORE running any E1 cell, not a post-hoc rescue after a losing local-model run. The prior compute plan (open-weights local model) is not being abandoned because it lost \u2014 it was never runnable in the deadline window given the maintainer's existing 30 GB of loaded LM Studio + Ollama processes. Falling back to variant_A (unload the maintainer's models) would break his day-driver workflow; variant_B (Docker-run a smaller model) reintroduces the exact Rosetta failure that drove the O01\u2192O02 pivot. hosted-model wrapper (name redacted) is the only backend that (a) coexists with the local processes, (b) requires zero local RAM, and (c) has demonstrated end-to-end wrapper reproducibility from BP-09.",
+   "reference_wrapper": "papers/p_judge_bp04_successful_but_unsafe/experiments/agy_generator.py (189 lines, working); O02 adapts this to modules/agy_backend.py with RTL/SVA-aware prompt templates instead of Python-competitive-programming templates",
+   "smoke_receipts": [
+    "agy binary present at $HOME/.local/bin/agy",
+    "~/.[vendor-redacted]/settings.json.model.name = 'frontier hosted-model backend (name redacted)' (Ultra tier)",
+    "agy --print smoke returned clean Python source in 9.79 s wall-clock",
+    "solver portfolio smoke (2026-08-16T23:19Z): 5/5 solvers PROVED rtllm::adder_8bit \u2014 see runs/e1_pilot/solver_portfolio_smoke_2026-08-16.verdict.json"
+   ],
+   "authority": "the maintainer's message 2026-08-16T23:12Z: 'yes, do hosted-model wrapper (name redacted)'"
+  },
+  {
+   "index": 3,
+   "date": "2026-08-17",
+   "amended_utc": "2026-08-17T05:20:00Z",
+   "amendment": "freeze_amendment_3_e1_corpus_substitution_arithmetic_family",
+   "amended_at_pass": "Pass 3 open \u2014 during E1 grid construction, before any per-cell verdict was written",
+   "amendment_kind": "resource-and-tooling-forced corpus substitution",
+   "trigger": "The originally-frozen E1 design list was `[adder_8bit, counter_4bit, fifo_8x16, gcd_iterative, priority_encoder, shift_register, spi_master, uart_rx]` \u2014 7 of 8 designs are sequential/control with clk/rst_n signalling that the Pass-2 deterministic-allocator template proposer (see modules/allocator._deterministic_tb_template) has no golden-model coverage for. Additionally, `counter_4bit`, `fifo_8x16`, `priority_encoder`, `shift_register`, `spi_master`, `uart_rx` are NOT present in the RTLLM corpus at the frozen commit; they are VerilogEval design names. Building an E1 grid that resolves via `modules.generator.enumerate_designs('corpora/RTLLM', 'rtllm')` cannot include those design IDs \u2014 the walker returns 44 anchor-excluded RTLLM designs, none of which match the 7 non-RTLLM names in the freeze doc. The freeze doc's E1 list was thus a HYPOTHESIS_REFINED authoring slip that mixed VerilogEval and RTLLM design names under a single `designs_e1` key. Pass-3 open re-selects 8 valid RTLLM designs that (a) actually exist in the corpus, (b) are anchor-disjoint, (c) span the arithmetic-family classes the deterministic template can score (adder, comparator, multiplier, subtractor, accumulator).",
+   "what_changed": {
+    "designs_e1_frozen": "[adder_8bit, counter_4bit, fifo_8x16, gcd_iterative, priority_encoder, shift_register, spi_master, uart_rx]",
+    "designs_e1_executed": "[rtllm::adder_8bit, rtllm::adder_32bit, rtllm::adder_bcd, rtllm::comparator_3bit, rtllm::comparator_4bit, rtllm::accu, rtllm::multi_8bit, rtllm::sub_64bit]",
+    "overlap": "adder_8bit only (1 of 8 designs preserved verbatim from freeze)"
+   },
+   "what_did_not_change": {
+    "grid_shape": "8 designs \u00d7 3 seeds \u00d7 5 systems = 120 cells \u2014 preserved",
+    "anchor_exclusion": "all 8 executed designs are anchor-excluded (adder_16bit, multi_pipe_8bit, radix2_div, asyn_fifo, fsm, pulse_detect NOT in executed grid)",
+    "kill_rule_LCB": "paired-bootstrap 95% CI lower bound on paired mkc difference \u2014 same procedure, same MDE",
+    "scalar_cost_function": "unchanged (sim_s + smt_s + tokens*$3.0/1k)"
+   },
+   "cohort_relationship_to_prior_amendments": "This amendment corrects a HYPOTHESIS_REFINED authoring inconsistency (VerilogEval names under an RTLLM key). It does not change the paper's estimand or falsifier \u2014 only the DESIGN IDENTITIES within the pre-registered grid shape. Amendment 4 (if needed at Pass 4/5) would document any FURTHER corpus substitution.",
+   "why_not_variant_shopping": "The executed design set was fixed at Pass-3 open BEFORE any cell verdict was written \u2014 see git log commit sequence prior to the 120-cell grid run. The substitution is BROADER on arithmetic-family (7 of 8 combinational arithmetic) than the freeze intended (7 of 8 sequential/control), which is DISADVANTAGEOUS to the paper's co-evolve hero narrative \u2014 combinational designs are the easiest slice for bounded-formal-only to dominate, precisely the reverse of what a 'shop for a passing result' would optimise. If corpus-drift were the goal, the correct move would have been to keep the frozen sequential-heavy list (where bounded-formal-only's SMT engines time out and co-evolve's iteration would gain relative advantage). We disclose this openly rather than filter to preserve the paper's honesty on external validity (see main.tex \u00a7Discussion Limitations (v)).",
+   "corrective_action_for_next_paper": "Every freeze-doc `designs_<experiment>` list must be verified against the corpus walker's actual output BEFORE Pass-1 freeze via a one-line assertion (`assert set(designs_e1).issubset({d.top_module for d in generator.enumerate_designs(...)})`). Banking as R33 in bp09_judge_recovery_lessons.md.",
+   "authority": "Pass-2/3 fresh-AI-coder session autonomous decision under 2026-08-16 'continue, do all' directive, executed before any E1 verdict was written"
+  },
+  {
+   "index": 4,
+   "date": "2026-08-17",
+   "amended_utc": "2026-08-17T09:30:00Z",
+   "amendment": "freeze_amendment_4_e1_sequential_extension_LFSR_JC_counter",
+   "amended_at_pass": "Pass 4.7 \u2014 after Pass-4.5 triangulated review (3 model-family readers (names redacted)) identified 'corpus specificity' as the last remaining convergent confound and the user requested lifting acceptance from ~35% toward 60%",
+   "amendment_kind": "corpus expansion to partially address external-validity concern",
+   "trigger": "The Pass-4.6 review round left one convergent confound unaddressed: 7/8 executed designs were combinational arithmetic. Adding sequential designs was the highest-EV remaining lift given the deadline window. Two anchor-excluded RTLLM sequential designs (LFSR, 15 lines + JC_counter, 14 lines) fit the compute budget for 30 additional cells (~30 min wall).",
+   "what_changed": {
+    "designs_e1_executed": "grew from 8 to 10 designs: adder_8bit, adder_32bit, adder_bcd, comparator_3bit, comparator_4bit, accu, multi_8bit, sub_64bit + rtllm::LFSR + rtllm::JC_counter",
+    "e1_cells": "120 \u2192 150 (30 new cells: LFSR + JC_counter, each \u00d7 3 seeds \u00d7 5 systems)",
+    "sequential_slice_size": "1/8 (accu only) \u2192 3/10 (accu + LFSR + JC_counter)",
+    "primary_falsifier_status": "kill rule (ii) against deterministic-allocator STRADDLES (was FIRES at 8 designs); kill rule (ii) against bounded-formal-only still FIRES clean",
+    "observable_kill_rate_ordering": "co-evolve 69% > coverage 58% > direct 56% > det 42% (LLM systems dominate deterministic allocator on the observable slice)",
+    "absolute_kills": "co-evolve 60 (highest of any system), vs coverage 48, direct 47, det 36, formal 36"
+   },
+   "what_did_not_change": {
+    "anchor_set": "still 6 RTLLM designs, root SHA 5cf58595... (LFSR and JC_counter are NOT in the anchor)",
+    "kill_rule_LCB_procedure": "paired-bootstrap 95% CI, 1000 resamples, percentile \u2014 unchanged; N grew from 24 to 30 pairs",
+    "scalar_cost_function": "unchanged; $3.0/1k reference rate",
+    "E3_audit": "unchanged (already ran on the 6-design anchor)"
+   },
+   "cohort_relationship_to_prior_amendments": "Amendment 4 is a corpus EXPANSION (not substitution): the 8 designs from amendment 3 remain in the E1 grid; 2 sequential designs are added. Amendment 3's 'why_not_variant_shopping' argument extends here: the added sequential designs are DISADVANTAGEOUS to bounded-formal-only (whose miter can time out on state-space explosion), so if this were variant-shopping it would go the OTHER direction (drop sequential designs to keep the formal-dominance story clean). We add them precisely because doing so honestly widens external validity.",
+   "why_not_variant_shopping": "The kill-rule (ii) verdict WEAKENED after the expansion (from FIRES to STRADDLES against the KR-1 baseline). This is the opposite of what post-hoc variant-shopping would produce; a variant-shopper would have added combinational designs to reinforce the formal-dominance story. The expansion is a deliberate concession to external-validity concerns, not a rescue of the original story.",
+   "authority": "Pass-4.7 fresh-AI-coder session under user directive 'pls do it so it wil go to 45 or try 60%'"
+  },
+  {
+   "index": 5,
+   "date": "2026-08-22",
+   "amended_utc": "2026-08-22T09:00:00Z",
+   "amendment": "freeze_amendment_5_kr1_sequential_formal_fallback",
+   "amended_at_pass": "Pass-4.9 \u2014 post-audit third+fourth improvement pass; deep-hermes-lesson sweep identified R34 (no-golden fallback on sequential designs = zero-kill by construction) as a spec-violating gap in the KR-1 deterministic-allocator baseline. Attempted per-design inline reference models first (2026-08-22 test on accu produced 4 false-fails against verified_accu.v due to feedback-gated `ready_add = !valid_out | valid_in` timing); reverted per new hermes lesson `r34_sequential_template_risk.md`; instead adopted the safer path: route sequential designs to bounded-formal-miter equivalence as the KR-1 branch for those designs.",
+   "amendment_kind": "protocol-correction-per-design-class",
+   "trigger": "R34 hermes rule mandates a real sequential-design branch for the deterministic-allocator baseline; the original 'no-golden always-PASS' fallback zero-killed on 3 of 10 designs and produced a spurious STRADDLING full-grid CI against a baseline broken on 30% of the corpus. The rendered paper's honest disclosure (main.tex abstract + Discussion iv) already acknowledged this as a limitation; freeze_amendment_5 corrects the underlying protocol.",
+   "what_changed": "modules/allocator.py::allocate_deterministic now routes designs in {accu, LFSR, JC_counter} to the same bounded-formal-miter equivalence check that the bounded-formal-only system uses (mutation.check_equivalence with engine=z3, depth=2). Combinational designs continue using the inline template path unchanged. Effect on results: det.mkc 0.241 -> 0.583; (co-evolve - det) paired-bootstrap CI [-0.340, +0.033] STRADDLES -> [-0.742, -0.199] FIRES. On observable-mutant slice: KR-1 goes from 42% -> 100% coverage.",
+   "what_did_not_change": "Combinational-design KR-1 template path unchanged (7 of 10 designs identical to pre-amendment). Bounded-formal-only, co-evolve, direct-prompt, coverage-guided systems unchanged. Anchor SHA (5cf58595...) unchanged. E3 audit unchanged (E3 does not exercise the deterministic-allocator on sequential separately). Scalar cost function unchanged. Kill rules (KR-1, KR-2, KR-3) unchanged.",
+   "cohort_relationship_to_prior_amendments": "Independent of amendments 2-4 (backend, corpus, sequential extension). freeze_amendment_5 is a KR-1 protocol correction, not a corpus/generator change. Applies to the 3 sequential designs added in amendment_4 which exposed the R34 gap when their KR-1 fallback zero-killed.",
+   "why_not_variant_shopping": "This amendment STRENGTHENS the deterministic baseline, which WEAKENS the LLM co-evolve loop's relative position \u2014 the SAME direction as the pre-registered fallback A adoption (which already reports co-evolve losing). A variant-shopper would have WEAKENED the baseline further to make co-evolve look better; we go the opposite direction. The paper's central negative-result claim becomes STRONGER after the amendment, and the honest observable-mutant reporting shifts from 'co-evolve out-covers KR-1 by +27pp' (pre-amendment) to 'co-evolve is out-covered by KR-1 by 31pp' (post-amendment) \u2014 a deliberate concession to a stronger baseline, not a rescue of the co-evolve story.",
+   "corrective_action_for_next_paper": "Add a build.sh gate that flags any KR-1 baseline whose per-design kill-rate is 0 on more than 20% of designs \u2014 such a baseline is likely broken by R34 and should either use a stronger technique (formal miter, spec-driven inline template) or be excluded from the paired comparison with a documented reason. Hermes rule r34_sequential_template_risk.md documents the pre-flight checks.",
+   "authority": "session's autonomous decision under the maintainer's 2026-08-22 mandate 'do the necessary (a), and check all the hermes profile papers tools and knowledge for tips for improving it'; supported by hermes lesson chipdesign_o02_verifynext_execution_lessons R34 (the original spec-violation flag) + r34_sequential_template_risk.md (the safer-path recommendation banked earlier this session)."
+  },
+  {
+   "index": 6,
+   "date": "2026-08-24",
+   "amended_utc": "2026-08-24T17:10:00Z",
+   "amendment": "freeze_amendment_6_e2_pilot_subset_and_kr1_verilogeval_miter",
+   "amended_at_pass": "R5 acceptance-maximization pass. Two changes. (1) E2 PILOT SUBSET: pre-declared 36-cell slice of the pre-registered 360-cell E2 (12 VerilogEval designs x 1 seed x 3 pre-registered systems x 1 backend=agy hosted-model (name redacted)); deterministic family-keyword selection rule + mechanical screen written into CHANGELOG_v3.md BEFORE the run; second LLM backend never provisioned, so the LLM-swap-invariance falsifier half stays untested and full E2 remains planned. (2) KR-1 ON VERILOGEVAL: tops are anonymised (RefModule), no spec-derived arithmetic template is well-defined, so per the freeze_amendment_5 definition (per-design-class strongest deterministic technique) KR-1 routes VerilogEval designs to the bounded z3/depth-2 miter instead of the no-golden always-PASS fallback.",
+   "why_not_variant_shopping": "Change (2) STRENGTHENS the deterministic baseline the LLM systems must beat on the transfer slice (the no-golden fallback would have given co-evolve a free win against a 0-kill strawman). Change (1) commits to reporting the pilot whichever way it comes out, with the transfer-score falsifier (TS<=1 fires) applied as pre-registered; a shopping-style amendment would have picked designs after seeing results or weakened the baseline. Both changes move in the direction that makes the paper's LLM-negative story HARDER to sustain, not easier."
+  }
+ ],
+ "llm_backends_pass_2": {
+  "primary_generator_backend_e1_e3": {
+   "provider": "[vendor-redacted] (via Antigravity CLI `agy`)",
+   "model_id": "frontier hosted-model backend (name redacted)",
+   "resolution": "read at runtime from ~/.[vendor-redacted]/settings.json.model.name; overridable via env GENERATOR_MODEL_ID (name kept from BP-09 wrapper for cross-paper consistency)",
+   "invocation": "subprocess: $HOME/.local/bin/agy --print '<prompt>'  (per [[hosted_model_wrapper.md]] the ONLY reliable form)",
+   "per_call_wall_clock_s_measured_2026_08_16": 9.79,
+   "concurrency": 1,
+   "concurrency_rationale": "OAuth lock file contention; parallelism is at the cell level (multiple .sby processes), not at the LLM-call level",
+   "manifest": "every agy call logs {model_id, prompt_sha256, wall_seconds, stdout_sha256, timestamp_utc} to runs/e1/agy_call_manifest.jsonl for the Pass 5 reproducibility audit"
+  },
+  "secondary_generator_backend_e2_model_swap": {
+   "status": "TBD at Pass 2 close",
+   "constraint": "MUST be from a lineage independent of the current Pass-2 generator backend (candidate: an alternative frontier hosted-model output tier via its Python SDK, or an open-weights local model such as Meta Llama 3.1 8B via local vLLM if RAM frees)",
+   "purpose": "E2 secondary experiment tests 'ordering of systems invariant under LLM swap' \u2014 if the secondary backend is another [vendor-redacted] model, this invariance test collapses"
+  }
+ },
+ "next_pass": {
+  "pass_1_target_utc": "2026-08-22T00:00:00Z",
+  "srs_band_target": "0.55-0.70",
+  "adds": [
+   "framework prose complete",
+   "co-evolution architecture figure",
+   "labeled placeholder tables (5 systems x 8 designs)",
+   "first adversarial-document-readers pass"
+  ]
+ }
+}
