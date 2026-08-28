@@ -1,0 +1,119 @@
+{
+  "n_design": 10,
+  "n_cells_total": 30,
+  "resamples": 10000,
+  "alpha": 0.05,
+  "ci_kind": "percentile (design-clustered, seeds nested)",
+  "resample_unit": "design",
+  "comparisons": [
+    {
+      "arm_a": "co-evolve",
+      "arm_b": "deterministic-allocator",
+      "n_cells_pooled": 30,
+      "point_estimate_paired_diff": -0.4802,
+      "ci_lo": -0.9323,
+      "ci_hi": -0.0869,
+      "verdict": "FIRES \u2014 co-evolve strictly dominated (upper CI < 0)",
+      "loo_min_point": -0.5681,
+      "loo_max_point": -0.3495,
+      "loo_mean_point": -0.4802,
+      "loo_sign_preserved_count": 10,
+      "loo_n_designs": 10
+    },
+    {
+      "arm_a": "co-evolve",
+      "arm_b": "bounded-formal-only",
+      "n_cells_pooled": 30,
+      "point_estimate_paired_diff": -0.4332,
+      "ci_lo": -1.0245,
+      "ci_hi": 0.0372,
+      "verdict": "STRADDLES \u2014 inconclusive at 95% CI",
+      "loo_min_point": -0.5159,
+      "loo_max_point": -0.2137,
+      "loo_mean_point": -0.4332,
+      "loo_sign_preserved_count": 10,
+      "loo_n_designs": 10
+    },
+    {
+      "arm_a": "deterministic-allocator",
+      "arm_b": "bounded-formal-only",
+      "n_cells_pooled": 30,
+      "point_estimate_paired_diff": 0.047,
+      "ci_lo": -0.2442,
+      "ci_hi": 0.3771,
+      "verdict": "STRADDLES \u2014 inconclusive at 95% CI",
+      "loo_min_point": -0.0844,
+      "loo_max_point": 0.147,
+      "loo_mean_point": 0.047,
+      "loo_sign_preserved_count": 9,
+      "loo_n_designs": 10
+    }
+  ],
+  "combinational_slice": {
+    "slice": "combinational-only",
+    "combinational_designs": [
+      "rtllm::adder_8bit",
+      "rtllm::adder_32bit",
+      "rtllm::adder_bcd",
+      "rtllm::comparator_3bit",
+      "rtllm::comparator_4bit",
+      "rtllm::multi_8bit",
+      "rtllm::sub_64bit"
+    ],
+    "n_design": 7,
+    "n_cells_total": 21,
+    "comparisons": [
+      {
+        "arm_a": "co-evolve",
+        "arm_b": "deterministic-allocator",
+        "n_cells_pooled": 21,
+        "point_estimate_paired_diff": -0.2716,
+        "clustered_ci_lo": -0.5701,
+        "clustered_ci_hi": -0.0013,
+        "clustered_verdict": "FIRES \u2014 co-evolve strictly dominated (upper CI < 0)",
+        "unclustered_ci_lo": -0.5576,
+        "unclustered_ci_hi": -0.0488,
+        "unclustered_verdict": "FIRES \u2014 co-evolve strictly dominated (upper CI < 0)",
+        "unclustered_resamples": 1000,
+        "loo_min_point": -0.3168,
+        "loo_max_point": -0.1509,
+        "loo_sign_preserved_count": 7,
+        "loo_n_designs": 7
+      },
+      {
+        "arm_a": "co-evolve",
+        "arm_b": "bounded-formal-only",
+        "n_cells_pooled": 21,
+        "point_estimate_paired_diff": -0.091,
+        "clustered_ci_lo": -0.3774,
+        "clustered_ci_hi": 0.1023,
+        "clustered_verdict": "STRADDLES \u2014 inconclusive at 95% CI",
+        "unclustered_ci_lo": -0.3535,
+        "unclustered_ci_hi": 0.061,
+        "unclustered_verdict": "STRADDLES \u2014 inconclusive at 95% CI",
+        "unclustered_resamples": 1000,
+        "loo_min_point": -0.1451,
+        "loo_max_point": 0.0415,
+        "loo_sign_preserved_count": 6,
+        "loo_n_designs": 7
+      },
+      {
+        "arm_a": "deterministic-allocator",
+        "arm_b": "bounded-formal-only",
+        "n_cells_pooled": 21,
+        "point_estimate_paired_diff": 0.1806,
+        "clustered_ci_lo": 0.0015,
+        "clustered_ci_hi": 0.5318,
+        "clustered_verdict": "CLEARS \u2014 co-evolve strictly dominant (lower CI > 0)",
+        "unclustered_ci_lo": -0.0174,
+        "unclustered_ci_hi": 0.44,
+        "unclustered_verdict": "STRADDLES \u2014 inconclusive at 95% CI",
+        "unclustered_resamples": 1000,
+        "loo_min_point": 0.0058,
+        "loo_max_point": 0.2107,
+        "loo_sign_preserved_count": 7,
+        "loo_n_designs": 7
+      }
+    ]
+  }
+}
