@@ -1,0 +1,57 @@
+== Raw totals per system (30 cells each)
+  system                      kills    sim_s    smt_s   time_s   tokens  $@0.003 zero-time cells
+  bounded-formal-only        36/129      0.0    229.9    229.9        0   0.0000               3
+  deterministic-allocator    57/129    626.8     15.1    641.9        0   0.0000               0
+  co-evolve                  60/129    919.7      0.0    919.7   120859   0.3626               0
+  direct-prompt              47/129    359.6      0.0    359.6    59715   0.1791               0
+  coverage-guided            48/129    836.6      0.0    836.6   120914   0.3627               0
+
+== TIME view (tokens free): kills per time-second
+  system                     ratio-of-sums  mean-of-ratios (0 if t=0)  mean-of-ratios (t>0 cells)
+  bounded-formal-only                0.157                      0.536                       0.595
+  deterministic-allocator            0.089                      0.583                       0.583
+  co-evolve                          0.065                      0.508                       0.508
+  direct-prompt                      0.131                      0.535                       0.535
+  coverage-guided                    0.057                      0.358                       0.358
+  ratio-of-sums rank: bounded-formal-only > direct-prompt > deterministic-allocator > co-evolve > coverage-guided
+
+  Paired differences, TIME view, point [95% clustered CI]
+    co-evolve - deterministic-allocator:
+      mean-of-ratios -0.075 [-0.583, +0.502] straddles 0
+      ratio-of-sums  -0.024 [-0.199, +0.036] straddles 0
+    co-evolve - bounded-formal-only:
+      mean-of-ratios -0.028 [-0.581, +0.550] straddles 0
+      ratio-of-sums  -0.091 [-0.552, +0.085] straddles 0
+    co-evolve - direct-prompt:
+      mean-of-ratios -0.027 [-0.340, +0.250] straddles 0
+      ratio-of-sums  -0.065 [-0.306, -0.019] FIRES (hi<0)
+    deterministic-allocator - direct-prompt:
+      mean-of-ratios +0.047 [-0.306, +0.331] straddles 0
+      ratio-of-sums  -0.042 [-0.266, +0.096] straddles 0
+    deterministic-allocator - bounded-formal-only:
+      mean-of-ratios +0.047 [-0.244, +0.377] straddles 0
+      ratio-of-sums  -0.068 [-0.496, +0.108] straddles 0
+
+== MONEY view at $0.003/1k tokens (= $3/M), time free
+  bounded-formal-only       spend $0  kills 36  kills/$ undefined (no LLM spend)
+  deterministic-allocator   spend $0  kills 57  kills/$ undefined (no LLM spend)
+  co-evolve                 spend $0.3626  kills 60  kills/$ 165.5  $/kill 0.00604  tokens/kill 2014
+  direct-prompt             spend $0.1791  kills 47  kills/$ 262.4  $/kill 0.00381  tokens/kill 1271
+  coverage-guided           spend $0.3627  kills 48  kills/$ 132.3  $/kill 0.00756  tokens/kill 2519
+
+  Paired per-cell differences, MONEY view, point [95% clustered CI]
+    co-evolve - deterministic-allocator: kills/cell +0.100 [-1.000, +1.100] straddles 0; $/cell +0.01209 [+0.01091, +0.01334]
+    co-evolve - bounded-formal-only: kills/cell +0.800 [-0.733, +2.267] straddles 0; $/cell +0.01209 [+0.01091, +0.01334]
+    co-evolve - direct-prompt: kills/cell +0.433 [+0.067, +0.933] CLEARS (lo>0); $/cell +0.00611 [+0.00548, +0.00685]
+    co-evolve - coverage-guided: kills/cell +0.400 [+0.000, +0.900] straddles 0; $/cell -0.00001 [-0.00041, +0.00039]
+    co-evolve - direct-prompt: kills per $ (ratio-of-sums) -96.9 [-213.0, +0.9] straddles 0
+    co-evolve - coverage-guided: kills per $ (ratio-of-sums) +33.2 [+2.0, +78.1] CLEARS (lo>0)
+
+== LLM latency (excluded from every time/cost figure above)
+  generator records in E1 verdict files: 150, summed wall_seconds = 0.0
+  agy_call_manifest.jsonl: 252 calls, total wall 19883.7 s (78.9 s/call), utc 2026-08-16T21:22:59Z .. 2026-08-24T19:24:50Z
+  outcomes: {'ok': 243, 'timeout': 6, 'nonzero_exit': 3}
+    2026-08-16: 48 calls, 3036.8 s
+    2026-08-17: 162 calls, 8743.5 s
+    2026-08-24: 42 calls, 8103.4 s
+  LLM-arm sim+smt total = 2115.9 s; manifest latency / that = 9.4x (manifest has no cell id and spans dates beyond the E1 run; not attributable per system)

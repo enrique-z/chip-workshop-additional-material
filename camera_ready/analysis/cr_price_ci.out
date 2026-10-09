@@ -1,0 +1,68 @@
+cells=150 designs=10 order=['rtllm::JC_counter', 'rtllm::LFSR', 'rtllm::accu', 'rtllm::adder_32bit', 'rtllm::adder_8bit', 'rtllm::adder_bcd', 'rtllm::comparator_3bit', 'rtllm::comparator_4bit', 'rtllm::multi_8bit', 'rtllm::sub_64bit']
+
+== Step 0: sanity check vs published clustered CIs (paper loader: scalar_cost_used)
+  co-ev - KR-1, full grid (10 designs)     point=-0.4802 CI=[-0.9323, -0.0869]  published [-0.932, -0.087]  MATCH
+                                           recomputed-from-components @$3/1k: point=-0.4802 CI=[-0.9323, -0.0869]
+  co-ev - formal, full grid (10 designs)   point=-0.4332 CI=[-1.0245, +0.0372]  published [-1.025, +0.037]  MATCH
+                                           recomputed-from-components @$3/1k: point=-0.4332 CI=[-1.0245, +0.0372]
+  co-ev - KR-1, comb slice (7 designs)     point=-0.2716 CI=[-0.5701, -0.0013]  published [-0.570, -0.001]  MATCH
+                                           recomputed-from-components @$3/1k: point=-0.2716 CI=[-0.5701, -0.0013]
+  SANITY: PASS  (note -1.0245 is printed as -1.025 in main.tex)
+
+== Step 1: price sweep, amended (as-run) KR-1 verdicts; point [95% design-clustered CI]
+  co-ev - KR-1, full grid (10 designs)
+    $3     /1k  -0.480 [-0.932, -0.087]  FIRES (hi<0)
+    $0.3   /1k  -0.247 [-0.700, +0.199]  straddles 0
+    $0.03  /1k  -0.102 [-0.592, +0.449]  straddles 0
+    $0.003 /1k  -0.078 [-0.584, +0.497]  straddles 0
+    $0     /1k  -0.075 [-0.583, +0.502]  straddles 0
+  co-ev - formal, full grid (10 designs)
+    $3     /1k  -0.433 [-1.024, +0.037]  straddles 0
+    $0.3   /1k  -0.200 [-0.749, +0.313]  straddles 0
+    $0.03  /1k  -0.055 [-0.603, +0.516]  straddles 0
+    $0.003 /1k  -0.031 [-0.586, +0.545]  straddles 0
+    $0     /1k  -0.028 [-0.581, +0.550]  straddles 0
+  co-ev - KR-1, comb slice (7 designs)
+    $3     /1k  -0.272 [-0.570, -0.001]  FIRES (hi<0)
+    $0.3   /1k  -0.175 [-0.393, -0.001]  FIRES (hi<0)
+    $0.03  /1k  -0.143 [-0.316, -0.001]  FIRES (hi<0)
+    $0.003 /1k  -0.139 [-0.309, -0.001]  FIRES (hi<0)
+    $0     /1k  -0.139 [-0.309, -0.001]  FIRES (hi<0)
+  co-ev - direct, full grid
+    $3     /1k  -0.026 [-0.070, +0.011]  straddles 0
+    $0.3   /1k  -0.040 [-0.205, +0.107]  straddles 0
+    $0.03  /1k  -0.030 [-0.316, +0.226]  straddles 0
+    $0.003 /1k  -0.028 [-0.338, +0.247]  straddles 0
+    $0     /1k  -0.027 [-0.340, +0.250]  straddles 0
+  KR-1 - formal, full grid
+    $3     /1k  +0.047 [-0.244, +0.377]  straddles 0
+    $0.3   /1k  +0.047 [-0.244, +0.377]  straddles 0
+    $0.03  /1k  +0.047 [-0.244, +0.377]  straddles 0
+    $0.003 /1k  +0.047 [-0.244, +0.377]  straddles 0
+    $0     /1k  +0.047 [-0.244, +0.377]  straddles 0
+  co-ev - formal, comb slice
+    $3     /1k  -0.091 [-0.377, +0.102]  straddles 0
+    $0.3   /1k  +0.006 [-0.219, +0.235]  straddles 0
+    $0.03  /1k  +0.037 [-0.164, +0.273]  straddles 0
+    $0.003 /1k  +0.041 [-0.156, +0.278]  straddles 0
+    $0     /1k  +0.042 [-0.156, +0.278]  straddles 0
+  KR-1 - formal, comb slice
+    $3     /1k  +0.181 [+0.002, +0.532]  CLEARS (lo>0)
+    $0.3   /1k  +0.181 [+0.002, +0.532]  CLEARS (lo>0)
+    $0.03  /1k  +0.181 [+0.002, +0.532]  CLEARS (lo>0)
+    $0.003 /1k  +0.181 [+0.002, +0.532]  CLEARS (lo>0)
+    $0     /1k  +0.181 [+0.002, +0.532]  CLEARS (lo>0)
+
+== Step 2: leave-one-design-out point range @$3/1k (sign check)
+  co-ev - KR-1, full grid (10 designs)     LOO range [-0.5681, -0.3495] sign kept 10/10
+  co-ev - formal, full grid (10 designs)   LOO range [-0.5159, -0.2137] sign kept 10/10
+  co-ev - KR-1, comb slice (7 designs)     LOO range [-0.3168, -0.1509] sign kept 7/7
+
+== Step 3: PRE-amendment-5 KR-1 verdicts (9 sequential KR-1 cells swapped in from evidence/kr1_seq_pre_amendment_5_backup/)
+  KR-1 total kills: amended 57/129, pre-amendment 36/129
+  co-ev - KR-1, full grid (10 designs)     $3   /1k  -0.139 [-0.431, +0.090]  straddles 0
+  co-ev - KR-1, full grid (10 designs)     $0   /1k  +0.267 [-0.159, +0.799]  straddles 0
+  co-ev - formal, full grid (10 designs)   $3   /1k  -0.433 [-1.024, +0.037]  straddles 0
+  co-ev - formal, full grid (10 designs)   $0   /1k  -0.028 [-0.581, +0.550]  straddles 0
+  co-ev - KR-1, comb slice (7 designs)     $3   /1k  -0.272 [-0.570, -0.001]  FIRES (hi<0)
+  co-ev - KR-1, comb slice (7 designs)     $0   /1k  -0.139 [-0.309, -0.001]  FIRES (hi<0)

@@ -1,0 +1,49 @@
+== Unit counts per system
+  system                           cells      records       mutxTB        refTB       LLMgen     mut-inst distinct-mut  killed-inst
+  bounded-formal-only                 30          129          129            0            0          129           43           36
+  deterministic-allocator             30          483          399           84            0          129           43           57
+  co-evolve                           30          938          698          180           60          129           43           60
+  direct-prompt                       30          417          297           90           30          129           43           47
+  coverage-guided                     30          907          667          180           60          129           43           48
+  TOTAL                                          2874         2190          534          150          645          215          248
+
+  2,874 = all records (2874); 2,190 = mutant x TB records (2190); 645 = mutant-instances (645, 129/system); distinct mutants/system = 43 (each seeded identically in all 3 seeds? yes)
+
+== Mutant x TB outcome breakdown (App B unit) vs main.tex App B (l.524-528)
+  bounded-formal-only       recs/killed/survived/err/timeout = (129, 36, 8, 84, 1)  tex (129, 36, 8, 84, 1)  OK 
+                            1 - killedTB/recs = 0.721 (unit: mutant x TB)  vs  1 - killed/instances = 0.721 (unit: mutant-instance = Table 1 fpr)
+  deterministic-allocator   recs/killed/survived/err/timeout = (399, 165, 168, 54, 12)  tex (399, 165, 168, 54, 12)  OK 
+                            1 - killedTB/recs = 0.586 (unit: mutant x TB)  vs  1 - killed/instances = 0.558 (unit: mutant-instance = Table 1 fpr)
+  co-evolve                 recs/killed/survived/err/timeout = (698, 184, 172, 324, 18)  tex (698, 184, 172, 324, 18)  OK 
+                            1 - killedTB/recs = 0.736 (unit: mutant x TB)  vs  1 - killed/instances = 0.535 (unit: mutant-instance = Table 1 fpr)
+  direct-prompt             recs/killed/survived/err/timeout = (297, 91, 74, 124, 8)  tex (297, 91, 74, 124, 8)  OK 
+                            1 - killedTB/recs = 0.694 (unit: mutant x TB)  vs  1 - killed/instances = 0.636 (unit: mutant-instance = Table 1 fpr)
+  coverage-guided           recs/killed/survived/err/timeout = (667, 160, 128, 364, 15)  tex (667, 160, 128, 364, 15)  OK 
+                            1 - killedTB/recs = 0.760 (unit: mutant x TB)  vs  1 - killed/instances = 0.628 (unit: mutant-instance = Table 1 fpr)
+
+== Table 1 recomputed (populate_ledger.py definitions) vs main.tex l.290-294
+  bounded-formal-only       mkc=0.595 (over 27 cost>0 cells; over all 30 w/ mkc=0: 0.536) fpr=0.721 ffr=0.000 wc=7.7  MATCH
+                            ffr cross-check from ref-TB 'disproved' records: 0/30 = 0.000
+  deterministic-allocator   mkc=0.583 (over 30 cost>0 cells; over all 30 w/ mkc=0: 0.583) fpr=0.558 ffr=0.000 wc=21.4  MATCH
+                            ffr cross-check from ref-TB 'disproved' records: 0/30 = 0.000
+  co-evolve                 mkc=0.102 (over 30 cost>0 cells; over all 30 w/ mkc=0: 0.102) fpr=0.535 ffr=0.267 wc=30.7  MATCH
+                            ffr cross-check from ref-TB 'disproved' records: 8/30 = 0.267
+  direct-prompt             mkc=0.129 (over 30 cost>0 cells; over all 30 w/ mkc=0: 0.129) fpr=0.636 ffr=0.700 wc=12.0  MATCH
+                            ffr cross-check from ref-TB 'disproved' records: 21/30 = 0.700
+  coverage-guided           mkc=0.076 (over 30 cost>0 cells; over all 30 w/ mkc=0: 0.076) fpr=0.628 ffr=0.700 wc=27.9  MATCH
+                            ffr cross-check from ref-TB 'disproved' records: 21/30 = 0.700
+
+== Timeout rates: App D (l.675-680) denominators vs mutant x TB denominators
+  all: 54/2874 = 1.9% (records)  vs  54/2190 = 2.5% (mutant x TB)
+  bounded-formal-only       tex 1/129 = 0.8% [denominator = records: yes]  -> mutant x TB 1/129 = 0.8%; per cell 0.03
+  deterministic-allocator   tex 12/483 = 2.5% [denominator = records: yes]  -> mutant x TB 12/399 = 3.0%; per cell 0.40
+  co-evolve                 tex 18/938 = 1.9% [denominator = records: yes]  -> mutant x TB 18/698 = 2.6%; per cell 0.60
+  direct-prompt             tex 8/417 = 1.9% [denominator = records: yes]  -> mutant x TB 8/297 = 2.7%; per cell 0.27
+  coverage-guided           tex 15/907 = 1.7% [denominator = records: yes]  -> mutant x TB 15/667 = 2.2%; per cell 0.50
+
+== Summary-field consistency (n_killed + n_survived == n_total?)
+  bounded-formal-only       cells inconsistent: 21/30; sum n_mutants_survived = 8 vs instances - killed = 93
+  deterministic-allocator   cells inconsistent: 12/30; sum n_mutants_survived = 42 vs instances - killed = 72
+  co-evolve                 cells inconsistent: 20/30; sum n_mutants_survived = 64 vs instances - killed = 69
+  direct-prompt             cells inconsistent: 21/30; sum n_mutants_survived = 42 vs instances - killed = 82
+  coverage-guided           cells inconsistent: 19/30; sum n_mutants_survived = 46 vs instances - killed = 81

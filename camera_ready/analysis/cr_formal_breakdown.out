@@ -1,0 +1,23 @@
+== bounded-formal-only: mutant verdict outcomes (129 = one per mutant-instance)
+  total: {'mutation_killed': 36, 'mutation_survived': 8, 'engine_error': 84, 'timeout': 1} sum 129
+  engine_error share of non-kills: 84/93
+  cells where every miter verdict is engine_error: 15/30
+  design             class  mutation_  mutation_  engine_er    timeout
+  accu               seq           15          0          0          0
+  adder_32bit        comb           0          8          6          1
+  adder_8bit         comb          15          0          0          0
+  adder_bcd          comb           0          0         15          0
+  comparator_3bit    comb           0          0         15          0
+  comparator_4bit    comb           0          0         15          0
+  JC_counter         seq            6          0          6          0
+  LFSR               seq            0          0         12          0
+  multi_8bit         comb           0          0         15          0
+  sub_64bit          comb           0          0          0          0
+  designs where the miter engine-errors on every mutant: ['LFSR', 'adder_bcd', 'comparator_3bit', 'comparator_4bit', 'multi_8bit']
+
+== Mutant x TB records by (engine, outcome), all arms
+  bounded-formal-only: sby+z3/engine_error 84; sby+z3/mutation_killed 36; sby+z3/mutation_survived 8; sby+z3/timeout 1
+  deterministic-allocator: iverilog/engine_error 36; iverilog/mutation_killed 144; iverilog/mutation_survived 168; iverilog/timeout 12; sby+z3/engine_error 18; sby+z3/mutation_killed 21
+  co-evolve: iverilog/engine_error 324; iverilog/mutation_killed 184; iverilog/mutation_survived 172; iverilog/timeout 18
+  direct-prompt: iverilog/engine_error 124; iverilog/mutation_killed 91; iverilog/mutation_survived 74; iverilog/timeout 8
+  coverage-guided: iverilog/engine_error 364; iverilog/mutation_killed 160; iverilog/mutation_survived 128; iverilog/timeout 15

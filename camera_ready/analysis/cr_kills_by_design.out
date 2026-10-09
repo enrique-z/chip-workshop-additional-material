@@ -1,0 +1,78 @@
+== Kills by design (summed over 3 seeds); killed/mutant-instances
+  design             class   formal     KR-1    co-ev   direct      cov
+  accu               seq      15/15    15/15     4/15     3/15     0/15
+  adder_32bit        comb      0/15     0/15     0/15     0/15     0/15
+  adder_8bit         comb     15/15    15/15    15/15    15/15    15/15
+  adder_bcd          comb      0/15     0/15     0/15     0/15     0/15
+  comparator_3bit    comb      0/15    12/15    15/15    14/15    14/15
+  comparator_4bit    comb      0/15     0/15     0/15     0/15     0/15
+  JC_counter         seq       6/12     6/12     6/12     2/12     6/12
+  LFSR               seq       0/12     0/12    11/12     4/12     4/12
+  multi_8bit         comb      0/15     9/15     9/15     9/15     9/15
+  sub_64bit          comb       0/0      0/0      0/0      0/0      0/0
+  TOTAL                     36/129   57/129   60/129   47/129   48/129 
+  comb (7)                  15/90    36/90    39/90    38/90    38/90  
+  seq (3)                   21/39    21/39    21/39     9/39    10/39  
+  designs where systems differ in kills: 5 -> ['JC_counter', 'LFSR', 'accu', 'comparator_3bit', 'multi_8bit']
+  designs with zero mutants: ['sub_64bit']
+
+== Per-seed kills on comparator_3bit / multi_8bit (formal vs KR-1), checks main.tex l.341-344
+  comparator_3bit seed 0: formal 0/5 (miter outcomes {'engine_error': 5}), KR-1 4/5
+  comparator_3bit seed 1: formal 0/5 (miter outcomes {'engine_error': 5}), KR-1 4/5
+  comparator_3bit seed 2: formal 0/5 (miter outcomes {'engine_error': 5}), KR-1 4/5
+  multi_8bit      seed 0: formal 0/5 (miter outcomes {'engine_error': 5}), KR-1 3/5
+  multi_8bit      seed 1: formal 0/5 (miter outcomes {'engine_error': 5}), KR-1 3/5
+  multi_8bit      seed 2: formal 0/5 (miter outcomes {'engine_error': 5}), KR-1 3/5
+
+== Observable slice: mutants killed by the formal miter (any seed)
+  distinct observable mutants: 12 over designs ['JC_counter', 'accu', 'adder_8bit']
+  bounded-formal-only       36/36 (100%)  JC_counter 6/6  accu 15/15  adder_8bit 15/15
+  deterministic-allocator   36/36 (100%)  JC_counter 6/6  accu 15/15  adder_8bit 15/15
+  co-evolve                 25/36 (69%)  JC_counter 6/6  accu 4/15  adder_8bit 15/15
+  direct-prompt             20/36 (56%)  JC_counter 2/6  accu 3/15  adder_8bit 15/15
+  coverage-guided           21/36 (58%)  JC_counter 6/6  accu 0/15  adder_8bit 15/15
+
+== mkc per system under both conventions, each price
+  price $3/1k
+    bounded-formal-only       MoR-excl 0.595 (#1)  MoR-zero 0.536  RoS 0.157 (#1)
+    deterministic-allocator   MoR-excl 0.583 (#2)  MoR-zero 0.583  RoS 0.089 (#2)
+    co-evolve                 MoR-excl 0.102 (#4)  MoR-zero 0.102  RoS 0.047 (#4)
+    direct-prompt             MoR-excl 0.129 (#3)  MoR-zero 0.129  RoS 0.087 (#3)
+    coverage-guided           MoR-excl 0.076 (#5)  MoR-zero 0.076  RoS 0.040 (#5)
+    ratios: formal/co-ev MoR 5.809x RoS 3.346x; KR-1/direct MoR 4.53x RoS 1.02x; KR-1/co-ev MoR 5.69x RoS 1.90x
+  price $0.3/1k
+    bounded-formal-only       MoR-excl 0.595 (#1)  MoR-zero 0.536  RoS 0.157 (#1)
+    deterministic-allocator   MoR-excl 0.583 (#2)  MoR-zero 0.583  RoS 0.089 (#3)
+    co-evolve                 MoR-excl 0.336 (#4)  MoR-zero 0.336  RoS 0.063 (#4)
+    direct-prompt             MoR-excl 0.375 (#3)  MoR-zero 0.375  RoS 0.125 (#2)
+    coverage-guided           MoR-excl 0.246 (#5)  MoR-zero 0.246  RoS 0.055 (#5)
+    ratios: formal/co-ev MoR 1.772x RoS 2.495x; KR-1/direct MoR 1.55x RoS 0.71x; KR-1/co-ev MoR 1.73x RoS 1.41x
+  price $0.03/1k
+    bounded-formal-only       MoR-excl 0.595 (#1)  MoR-zero 0.536  RoS 0.157 (#1)
+    deterministic-allocator   MoR-excl 0.583 (#2)  MoR-zero 0.583  RoS 0.089 (#3)
+    co-evolve                 MoR-excl 0.481 (#4)  MoR-zero 0.481  RoS 0.065 (#4)
+    direct-prompt             MoR-excl 0.511 (#3)  MoR-zero 0.511  RoS 0.130 (#2)
+    coverage-guided           MoR-excl 0.342 (#5)  MoR-zero 0.342  RoS 0.057 (#5)
+    ratios: formal/co-ev MoR 1.237x RoS 2.409x; KR-1/direct MoR 1.14x RoS 0.68x; KR-1/co-ev MoR 1.21x RoS 1.37x
+  price $0.003/1k
+    bounded-formal-only       MoR-excl 0.595 (#1)  MoR-zero 0.536  RoS 0.157 (#1)
+    deterministic-allocator   MoR-excl 0.583 (#2)  MoR-zero 0.583  RoS 0.089 (#3)
+    co-evolve                 MoR-excl 0.505 (#4)  MoR-zero 0.505  RoS 0.065 (#4)
+    direct-prompt             MoR-excl 0.533 (#3)  MoR-zero 0.533  RoS 0.131 (#2)
+    coverage-guided           MoR-excl 0.357 (#5)  MoR-zero 0.357  RoS 0.057 (#5)
+    ratios: formal/co-ev MoR 1.179x RoS 2.401x; KR-1/direct MoR 1.09x RoS 0.68x; KR-1/co-ev MoR 1.15x RoS 1.36x
+  price $0/1k
+    bounded-formal-only       MoR-excl 0.595 (#1)  MoR-zero 0.536  RoS 0.157 (#1)
+    deterministic-allocator   MoR-excl 0.583 (#2)  MoR-zero 0.583  RoS 0.089 (#3)
+    co-evolve                 MoR-excl 0.508 (#4)  MoR-zero 0.508  RoS 0.065 (#4)
+    direct-prompt             MoR-excl 0.535 (#3)  MoR-zero 0.535  RoS 0.131 (#2)
+    coverage-guided           MoR-excl 0.358 (#5)  MoR-zero 0.358  RoS 0.057 (#5)
+    ratios: formal/co-ev MoR 1.172x RoS 2.400x; KR-1/direct MoR 1.09x RoS 0.68x; KR-1/co-ev MoR 1.15x RoS 1.36x
+
+== Timeout-as-kill upper bound, RoS @$3/1k (checks main.tex l.556-560)
+  bounded-formal-only       distinct-mutant unit: kills+timeout-only mutants 37  RoS 0.161   |   paper's mixed unit (kills 36 + 1 timeout mutant x TB records = 37): RoS 0.161
+  deterministic-allocator   distinct-mutant unit: kills+timeout-only mutants 60  RoS 0.093   |   paper's mixed unit (kills 57 + 12 timeout mutant x TB records = 69): RoS 0.107
+  co-evolve                 distinct-mutant unit: kills+timeout-only mutants 63  RoS 0.049   |   paper's mixed unit (kills 60 + 18 timeout mutant x TB records = 78): RoS 0.061
+  direct-prompt             distinct-mutant unit: kills+timeout-only mutants 50  RoS 0.093   |   paper's mixed unit (kills 47 + 8 timeout mutant x TB records = 55): RoS 0.102
+  coverage-guided           distinct-mutant unit: kills+timeout-only mutants 51  RoS 0.043   |   paper's mixed unit (kills 48 + 15 timeout mutant x TB records = 63): RoS 0.053
+  miter as-measured RoS / co-evolve RoS with timeouts credited (checks l.463-464 '2.57x'): paper's mixed unit 2.574x, distinct-mutant unit 3.187x

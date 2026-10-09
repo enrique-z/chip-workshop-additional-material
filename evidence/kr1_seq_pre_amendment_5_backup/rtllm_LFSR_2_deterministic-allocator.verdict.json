@@ -1,0 +1,116 @@
+{
+  "cell": {
+    "design_id": "rtllm::LFSR",
+    "seed": 2,
+    "system": "deterministic-allocator",
+    "cost_budget": {
+      "sim_seconds_remaining": 300,
+      "smt_seconds_remaining": 300,
+      "llm_tokens_remaining": 20000
+    }
+  },
+  "summary": {
+    "n_mutants_total": 4,
+    "n_mutants_killed": 0,
+    "n_mutants_survived": 0,
+    "kill_rate": 0.0,
+    "n_false_fail_on_ref": 0,
+    "n_engine_errors": 4,
+    "n_timeouts": 0,
+    "sim_seconds_used": 0.15994501113891602,
+    "smt_seconds_used": 0.0,
+    "llm_tokens_used": 0,
+    "scalar_cost_used": 0.15994501113891602,
+    "mutation_kill_per_scalar_cost": 0.0
+  },
+  "n_verdicts": 4,
+  "verdicts": [
+    {
+      "verdict_id": "sim_d264fc6317c8",
+      "testbench_id": "tb_det_LFSR_s2_0",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.043000221252441406,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.043000221252441406,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/d264fc6317c8/tb.sv:6: warning: Port 1 (out) of module LFSR expects 4 bit(s), given 1.\nruns/e1/sim/d264fc6317c8/tb.sv:6:        : Padding 3 high bits of the port.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_a7c2f0375754",
+      "testbench_id": "tb_det_LFSR_s2_1",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.039627790451049805,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.039627790451049805,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/a7c2f0375754/tb.sv:6: warning: Port 1 (out) of module LFSR expects 4 bit(s), given 1.\nruns/e1/sim/a7c2f0375754/tb.sv:6:        : Padding 3 high bits of the port.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_0e7b65cc2cce",
+      "testbench_id": "tb_det_LFSR_s2_2",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.038968801498413086,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.038968801498413086,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/0e7b65cc2cce/tb.sv:6: warning: Port 1 (out) of module LFSR expects 4 bit(s), given 1.\nruns/e1/sim/0e7b65cc2cce/tb.sv:6:        : Padding 3 high bits of the port.\n[path-redacted]"
+    },
+    {
+      "verdict_id": "sim_077406768e80",
+      "testbench_id": "tb_det_LFSR_s2_3",
+      "property_id": null,
+      "mutation_id": null,
+      "engine": "iverilog",
+      "outcome": "engine_error",
+      "origin": "allocator",
+      "wall_seconds": 0.03834819793701172,
+      "smt_seconds": 0.0,
+      "sim_seconds": 0.03834819793701172,
+      "llm_tokens": 0,
+      "counterexample_trace": "runs/e1/sim/077406768e80/tb.sv:6: warning: Port 1 (out) of module LFSR expects 4 bit(s), given 1.\nruns/e1/sim/077406768e80/tb.sv:6:        : Padding 3 high bits of the port.\n[path-redacted]"
+    }
+  ],
+  "n_mutants": 4,
+  "mutants": [
+    {
+      "mutation_id": "m_LFSR_constant_flip_0_to_1_0",
+      "operator": "constant_flip_0_to_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte198",
+      "intended_effect": "flipped constant 0\u21921 at token '4'b0'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_signal_invert_rhs_0",
+      "operator": "signal_invert_rhs",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "inverted RHS of 'assign feedback = ~(out[3] ^ out[2]);'",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_0_0",
+      "operator": "stuck_at_0",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-zeros",
+      "origin": "allocator"
+    },
+    {
+      "mutation_id": "m_LFSR_stuck_at_1_0",
+      "operator": "stuck_at_1",
+      "site": "corpora/RTLLM/Memory/Shifter/LFSR/verified_LFSR.v:byte88",
+      "intended_effect": "forced RHS of 'assign feedback = ~(out[3] ^ out[2]);' to all-ones",
+      "origin": "allocator"
+    }
+  ]
+}
