@@ -1,4 +1,4 @@
-# LLM Verification Co-Evolution Underperforms a Deterministic Allocator on a Ten-Design RTLLM Audit
+# Does LLM Co-Evolution Pay Off in RTL Verification? A Cost-Normalised Audit on Ten RTLLM Designs
 
 Enrique Zueco, David Scott Lewis, Haley Yi — AIXC Research, Zaragoza, Spain
 
